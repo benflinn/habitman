@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="styles/main.css">
+<div id="home" class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="jumbotron">
+              <h1>Habit Man</h1>
+              <p>Start a new working life and learn great habits!</p>
+              <div class="btn-group">
+              <button type="button" class="btn btn-lg">Home</button>
+              <button type="button" class="btn btn-lg">How to Play</button>
+              <button type="button" class="btn btn-lg">About</button>
+              <button type="button" class="btn btn-lg">Save Your Progress</button>
+            </div>
+          </div>
+          <div class="panel panel-default panel-transparent">
+            <div class="panel-heading">
+              <h3 class="panel-title">Progress</h3>
+            </div>
+            <div class="panel-body">
+              <h3>You are on day <span class="label label-color">one</span> of seven, age <span class="label label-color" id="agelabel">14.00</span>.</h3>
+              <h3>You work <span class="label label-color" id="hourslabel">40</span> hours per week <button type="button" class="btn btn-default btn-lg" onclick="changehours()">Change hours</button></h3>
+              <h3>Money: $<span class="label label-color" id="moneylabel">0</span></h3>
+              <h3>Job title: <span class="label label-color" id="joblabel">Bagging Clerk</span></h3>
+              <h3>Wage: $<span class="label label-color" id="wagelabel">7.5</span>/hour</h3>
+              <h3>Transportation: <span class="label label-color" id="transLabel">Legs</span></h3>
+              <h3>Home: <span class="label label-color">Park Bench</span></h3>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" id="prodbar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                  Productivity
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default panel-transparent">
+            <div class="panel-heading">
+              <h3 class="panel-title">Your Body</h3>
+            </div>
+            <div class="panel-body centered">
+              <img class="img-responsive img-rounded layer" src="images/goals.png">
+              <img class="img-responsive img-rounded layer" src="images/determine.png">
+              <img class="img-responsive img-rounded layer" src="images/sleep.png">
+              <img class="img-responsive img-rounded layer" src="images/exer.png">
+              <img class="img-responsive img-rounded layer" src="images/diet.png">
+              <img class="img-responsive img-rounded" src="images/blank.png">
+            </div>
+          </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="panel panel-default panel-transparent">
+              <div class="panel-heading">
+                <h3 class="panel-title">Status</h3>
+              </div>
+              <div class="panel-body">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                    Sleep
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                    Exercise
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                    Diet
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                    Goals
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                    Determination
+                  </div>
+                </div>
+                <h3>Available Habit Power: <span class="label label-color">10</span></h3>
+                <div class="btn-group">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Upgrade Habits<img src="images/arrow.png"><span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Sleep</a></li>
+                    <li><a href="#">Exercise</a></li>
+                    <li><a href="#">Diet</a></li>
+                    <li><a href="#">Goals</a></li>
+                    <li><a href="#">Determination</a></li>
+                  </ul>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Training <img src="images/weight.png"><span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">3 Problems</a></li>
+                    <li><a href="#">7 Problems</a></li>
+                    <li><a href="#">15 Problems</a></li>
+                    <li><a href="#">30 Problems</a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="panel panel-default panel-transparent">
+          <div class="panel-heading">
+            <h3 class="panel-title">Store</h3>
+          </div>
+          <div class="panel-body">
+            <h3>Transportation Upgrade: <button type="button" class="btn btn-default btn-lg disabled" id="transup" onclick="transUpgrade()">Old Broomstick for $15</button></h3>
+            <h3>Home Upgrade: <button type="button" class="btn btn-default btn-lg disabled" id="homeup">Shack for $10,000</button></h3>
+            <h3>Pay Taxes: <button type="button" class="btn btn-default btn-lg disabled">$1,000</button></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+      
