@@ -4,7 +4,7 @@ Inspired by https://swarmsim.github.io/#/, The Power of Habit by Charles Duhigg,
 
 This will be an upgrade to a previous Habit Man, found here: http://quitlol.com/wp-content/uploads/2015/06/HabitMan2.html
 
-Habit Man is an idle game designed help the user improve daily habits. The user works a job and manages his "Habit Bars" by investing "Habit Power". He earns "Habit Power" by clicking on the "Training" button. During training, the user is shown a series of symptoms of a poor lifestyle, each of which can be quickly solved by choosing the appropriate health tip. 
+Habit Man is an idle game designed help the user improve daily habits. The user works a job and manages his "Habit Bars" by investing "Habit Power". He earns "Habit Power" by clicking on the "Training" button. During training, the user is shown a series of symptoms of a poor lifestyle, each of which can be quickly solved by choosing the appropriate health tip.
 
 This game will be an effective tool to condition users to build better daily habits:
 
@@ -16,6 +16,10 @@ This game will be an effective tool to condition users to build better daily hab
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.12.1.
+
+## Getting started
+
+Run `npm install -g bower`, `npm install -g yo`, `bower install`, and `npm install` to install the dependencies.
 
 ## Build & development
 
