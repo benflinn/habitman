@@ -23,12 +23,20 @@ angular
         templateUrl: 'views/home.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
-        css: '../styles/main.css'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/upgrade', {
+        templateUrl: 'views/upgrade.html',
+      })
+      .when('/howtoplay', {
+        templateUrl: 'views/howtoplay.html',
+      })
+      .when('/training', {
+        templateUrl: 'views/training.html',
       })
       .otherwise({
         redirectTo: '/'
