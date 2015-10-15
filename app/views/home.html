@@ -34,7 +34,7 @@
                             </tr>
                             <tr>
                                 <td>Job title:</td>
-                                <td><span class="label label-color" id="joblabel">Bagging Clerk</span></td>
+                                <td><span class="label label-color" id="joblabel">{{jobtitle}}</span></td>
                             </tr>
                             <tr>
                                 <td>Hourly wage:</td>
@@ -51,7 +51,7 @@
                         </tbody>
                     </table>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" id="prodbar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                        <div class="progress-bar progress-bar-striped active" style="{{prodStatus()}}">
                             <p class="progress-text">Productivity</p>
                         </div>
                     </div>
