@@ -1,55 +1,100 @@
 body {
-  background-image: url('../images/mountain.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      margin: auto auto;
-      padding: 0;
-    }
+    background-image: url('../images/mountain.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto auto;
+    padding: 10px;
+}
 
-    .panel-transparent {
-        background: none;
-    }
+.panel {
+    border: 0px;
+}
 
-    .panel-transparent .panel-heading{
-        background: rgba(102,68,0, 0.8);
-        color: white;
-    }
+.panel-transparent {
+    background: none;
+}
 
-    .panel-transparent .panel-body{
-        background: rgba(187, 157, 0, 0.8);
-    }
-    .jumbotron {
-      background: rgba(102,68,0, 0.8);
-    }
-    * {
-      color: white;
-      font-weight: bold;
-      border: none;
-    }
-    button {
-      background-color: rgba(51,153,102,.6);
-      color: white;
-    }
-    button:hover {
-      background: rgba(185, 244, 54,.8);
-    }
-    .progress {
-      background-color: rgba(102,68,0, 0.8);
-      height: 23px;
+.panel-transparent .panel-heading {
+    background: rgba(102, 68, 0, 0.9);
+    color: white;
+    border: 0px;
+}
 
-    }
-    .progress-bar {
-      background-color: rgba(223, 97, 0,1);
-            font-size: 20px;
-    }
-    .centered {
-      margin: auto auto;
-      text-align: center;
-    }
-    .label-color {
-      background-color: rgba(223, 97, 0,1);
-    }
-    .layer {
-      position: absolute;
+.panel-transparent .panel-body {
+    background: rgba(187, 157, 0, 0.9);
+}
 
-    }
+.jumbotron {
+    background: rgba(102, 68, 0, 0.8);
+}
+.nav li a {
+    background-color: rgba(51, 153, 102, .5);
+    color: white;
+}
+.nav li a:hover {
+    background: rgba(185, 244, 54, .8);
+    color: black;
+}
+.active a {
+    background-color: rgba(51, 153, 102, .9)!important;
+    color: white;
+}
+
+* {
+    color: white;
+    font-weight: bold;
+    border: 0px;
+}
+
+button {
+    background-color: rgba(51, 153, 102, .6);
+    color: white;
+}
+
+button:hover {
+    background: rgba(185, 244, 54, .8);
+}
+
+.progress {
+    background-color: rgba(102, 68, 0, 0.8);
+    width: 100%;
+    height: 45px;
+}
+
+.progress-bar {
+    background-color: rgba(223, 97, 0, 1);
+    font-size: 20px;
+}
+
+.progress-text {
+    margin-top: 10px;
+}
+
+.centered {
+    margin: auto auto;
+    text-align: center;
+}
+
+.label-color {
+    background-color: rgba(223, 97, 0, 1);
+    font-size: 17px;
+}
+
+.layer {
+    position: absolute;
+    margin: auto auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.margin20 {
+    margin: 20px;
+}
+tr {
+    height: 50px;
+}
+.margintop30 {
+    margin-top: 30px
+}
