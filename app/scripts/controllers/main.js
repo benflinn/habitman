@@ -151,11 +151,11 @@ angular.module('habitmanApp')
             $scope.age = Math.round(10000 * ($scope.age + .0024)) / 10000;
             $scope.sleepPercent = $scope.sleepPercent + 1;
             //add variance & add stress
-            sleep = sleep + 2 - 4*Math.random() - stress;
-            determination = determination + 2 - 4*Math.random() - stress;
-            diet = diet + 2 - 4*Math.random() - stress;
-            exercise = exercise + 2  - 4*Math.random() - stress;
-            goals = goals + 2  - 4*Math.random() - stress;
+            sleep = sleep + 2 - 4*Math.random() - stress * $scope.weeklyHours / 100  + sleepSkill / 20;
+            determination = determination + 2 - 4*Math.random() - stress * $scope.weeklyHours / 100  + detSkill / 20;
+            diet = diet + 2 - 4*Math.random() - stress * $scope.weeklyHours / 100  + dietSkill / 20;
+            exercise = exercise + 2  - 4*Math.random() - stress * $scope.weeklyHours / 100  + exerSkill / 20;
+            goals = goals + 2  - 4*Math.random() - stress * $scope.weeklyHours / 100 + goalSkill / 20;
             //calculate productivity
             prod = prod + sleep / 100 + diet / 100 + exercise / 100 + determination / 100 + goals / 100 - 2.5;
             $scope.$apply();
