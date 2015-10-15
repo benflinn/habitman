@@ -28,11 +28,12 @@ angular.module('habitmanApp')
     'Optometrist', 'Orthodontist', 'Pharmacist', 'Physician', 'Surgical Physician Assistant', 'Senior Power Trader', 'Senior Private Banker', 'Senior Process Engineer', 'Senior Project Manager', 'Quality Assurance Director', 'Provost', 'Radiation Physicist', 'Real Estate Attorney', 'Research And Development Manager', 'Sales Manager', 'Biotech Scientist', 'Software Architect', 'Surgeon', 'Tax Attorney', 
     'Technical Support Manager', 'Top Sales Executive', 'Top Recruiting Executive', 'Elon Musk'];
         var sleep = 20, exercise = 20, diet = 20, goals = 20, determination = 30;
-        var stress = 1;
-        var sleepSkill = 100, exerSkill = 100, dietSkill = 100, goalSkill = 100, detSkill = 100;
+        var stress = 0;
+        var sleepSkill = 20, exerSkill = 20, dietSkill = 20, goalSkill = 20, detSkill = 20;
         var prod = 20;
         var joblevel = 0;
         var wage = 7.5;
+        $scope.habitpower = 10;
         $scope.jobtitle = titles[joblevel];
         $scope.age = 14;
         $scope.weeklyHours = 40;
@@ -45,6 +46,7 @@ angular.module('habitmanApp')
         		$scope.jobtitle = titles[joblevel];
         		wage = Math.round(100*(wage + wage * .05))/100;
         		$scope.hourlyWage = wage;
+                stress++;
         	}
         	if (prod < 0) {
         		prod = 0;
@@ -124,19 +126,19 @@ angular.module('habitmanApp')
             return "width: " + determination + "%;";
         };
         $scope.nap = function() {
-            sleep += sleepSkill;
+            sleep += sleepSkill - stress * $scope.weeklyHours / 100;
         }
         $scope.walk = function() {
-            exercise += exerSkill;
+            exercise += exerSkill - stress * $scope.weeklyHours / 100;
         }
         $scope.snack = function() {
-            diet += dietSkill;
+            diet += dietSkill - stress * $scope.weeklyHours / 100;
         }
         $scope.plan = function() {
-            goals += goalSkill;
+            goals += goalSkill - stress * $scope.weeklyHours / 100;
         }
         $scope.focus = function() {
-            determination += detSkill;
+            determination += detSkill - stress * $scope.weeklyHours / 100;
         }
         $scope.rotateHours = function() {
             $scope.weeklyHours += 20;
