@@ -66,11 +66,11 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-9 margin20">
-                            <img class="img-responsive img-rounded layer" src="images/goals.png">
-                            <img class="img-responsive img-rounded layer" src="images/determine.png">
-                            <img class="img-responsive img-rounded layer" src="images/sleep.png">
-                            <img class="img-responsive img-rounded layer" src="images/exer.png">
-                            <img class="img-responsive img-rounded layer" src="images/diet.png">
+                            <img class="img-responsive img-rounded layer" ng-src="images/{{goalImage}}">
+                            <img class="img-responsive img-rounded layer" ng-src="images/{{detImage}}">
+                            <img class="img-responsive img-rounded layer" ng-src="images/{{sleepImage}}">
+                            <img class="img-responsive img-rounded layer" ng-src="images/{{exerImage}}">
+                            <img class="img-responsive img-rounded layer" ng-src="images/{{dietImage}}">
                             <img class="img-responsive img-rounded" src="images/blank.png">
                         </div>
                     </div>
@@ -85,51 +85,51 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3">
-                            <button class="full-width btn btn-lg">Nap</button>
+                            <button class="full-width btn btn-lg" ng-click="nap()">Nap</button>
                         </div>
                         <div class="col-md-9">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" style="width:50%">
+                                <div class="progress-bar progress-bar-striped active" style="{{sleepStatus()}}">
                                     <p class="progress-text">Sleep</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button class="full-width btn btn-lg">Walk</button>
+                            <button class="full-width btn btn-lg" ng-click="walk()">Walk</button>
                         </div>
                         <div class="col-md-9">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" style="width:50%">
+                                <div class="progress-bar progress-bar-striped active" style="{{exerStatus()}}">
                                     <p class="progress-text">Exercise</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button class="full-width btn btn-lg">Snack</button>
+                            <button class="full-width btn btn-lg" ng-click="snack()">Snack</button>
                         </div>
                         <div class="col-md-9">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" style="width:50%">
+                                <div class="progress-bar progress-bar-striped active" style="{{dietStatus()}}">
                                     <p class="progress-text">Diet</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button class="full-width btn btn-lg">Plan</button>
+                            <button class="full-width btn btn-lg" ng-click="plan()">Plan</button>
                         </div>
                         <div class="col-md-9">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" style="width:50%">
+                                <div class="progress-bar progress-bar-striped active" style="{{goalStatus()}}">
                                     <p class="progress-text">Goals</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <button class="full-width btn btn-lg">Focus</button>
+                            <button class="full-width btn btn-lg" ng-click="focus()">Focus</button>
                         </div>
                         <div class="col-md-9">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" style="width:50%">
+                                <div class="progress-bar progress-bar-striped active" style="{{detStatus()}}">
                                     <p class="progress-text">Determination</p>
                                 </div>
                             </div>
