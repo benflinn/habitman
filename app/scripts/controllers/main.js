@@ -47,6 +47,11 @@ angular.module('habitmanApp')
         		wage = Math.round(100*(wage + wage * .05))/100;
         		$scope.hourlyWage = wage;
                 stress++;
+                sleep = 0;
+                exercise = 0;
+                diet = 0;
+                goals = 0;
+                determination = 0;
         	}
         	if (prod < 0) {
         		prod = 0;
