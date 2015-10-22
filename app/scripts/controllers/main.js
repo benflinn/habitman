@@ -9,79 +9,23 @@
  */
 angular.module('habitmanApp')
     .controller('MainCtrl', function($scope, sharedProperties) {
-    	//jobtitles
-        var sleep = 20, exercise = 20, diet = 20, goals = 20, determination = 30;
-        var stress = 0;
-        var sleepSkill = 20, exerSkill = 20, dietSkill = 20, goalSkill = 20, detSkill = 20;
-        var prod = 20;
-        var joblevel = 0;
-        var wage = 7.5;
-        $scope.habitpower = 10;
-        $scope.jobtitle = titles[joblevel];
-        $scope.age = 14;
-        $scope.weeklyHours = 40;
-        $scope.hourlyWage = wage;
-        $scope.lifeSavings = 1;
-        $scope.prodStatus = function() {
-        	if (prod > 100) {
-        		prod = 0;
-        		joblevel++;
-        		$scope.jobtitle = titles[joblevel];
-        		wage = Math.round(100*(wage + wage * .05))/100;
-        		$scope.hourlyWage = wage;
-                stress++;
-                sleep = 0;
-                exercise = 0;
-                diet = 0;
-                goals = 0;
-                determination = 0;
-        	}
-        	if (prod < 0) {
-        		prod = 0;
-        	}
-         return "width: " + prod + "%;";
-        };
-        $scope.sleepStatus = function() {
-        	if (sleep > 100) {
-        		sleep = 100;
-        	}
-        	if (sleep < 0) {
-        		sleep = 0;
-        	}
-        	if (sleep > 50) {
-        		$scope.sleepImage = 'sleep.png';
-        	} else {
-        		$scope.sleepImage = 'nosleep.png';
-        	}
-         return "width: " + sleep + "%;";
-        };
-        $scope.exerStatus = function() {
-        	if (exercise > 100) {
-        		exercise = 100;
-        	}
-        	if (exercise < 0) {
-        		exercise = 0;
-        	}
-        	if (exercise > 50) {
-        		$scope.exerImage = 'exer.png';
-        	} else {
-        		$scope.exerImage = 'noexer.png';
-        	}
-
+        //grabbing titles from the service
     var titles = sharedProperties.getTitles();
-
+//setting initial vars
     var sleep = 20, exercise = 20, diet = 20, goals = 20, determination = 30;
     var stress = 0;
     var sleepSkill = 20, exerSkill = 20, dietSkill = 20, goalSkill = 20, detSkill = 20;
     var prod = 20;
     var joblevel = 0;
     var wage = 7.5;
+    //defining the vars for the scope
     $scope.habitpower = 10;
     $scope.jobtitle = titles[joblevel];
     $scope.age = 14;
     $scope.weeklyHours = 40;
     $scope.hourlyWage = wage;
     $scope.lifeSavings = 1;
+    //functions to give values to the progress bars
     $scope.prodStatus = function() {
     	if (prod > 100) {
     		prod = 0;
@@ -168,6 +112,7 @@ angular.module('habitmanApp')
     	}
         return "width: " + determination + "%;";
     };
+    //buttons to raise the habit progress bars
     $scope.nap = function() {
         sleep += sleepSkill - stress * $scope.weeklyHours / 100;
     }
@@ -189,6 +134,7 @@ angular.module('habitmanApp')
             $scope.weeklyHours = 20;
         }
     }
+    //function for each half second update
     var oneSecond = function() {
         $scope.lifeSavings = Math.round($scope.lifeSavings + $scope.hourlyWage * $scope.weeklyHours / 8.3);
         $scope.age = Math.round(10000 * ($scope.age + .0024)) / 10000;
