@@ -149,6 +149,7 @@ angular.module('habitmanApp')
         prod = prod + sleep / 100 + diet / 100 + exercise / 100 + determination / 100 + goals / 100 - 2.5;
         $scope.$apply();
     }
+    //starting the update cycle
     setInterval(function() {
         oneSecond();
     }, 500);
