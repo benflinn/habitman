@@ -14,6 +14,8 @@ angular.module('habitmanApp')
 
         //getting userData
         var user = userStats.getStats();
+        var vehicles = sharedProperties.getTrans();
+        var salary = sharedProperties.getSalary();
 
         //show initial stats
         $scope.habitpower = user.habitpower;
@@ -22,6 +24,7 @@ angular.module('habitmanApp')
         $scope.lifeSavings = user.lifeSavings;
         $scope.age = user.age;
         $scope.weeklyHours = user.weeklyHours;
+        $scope.transport = vehicles[user.vehicleLevel];
 
         //functions to give values to the progress bars
         $scope.prodStatus = function() {
@@ -29,7 +32,7 @@ angular.module('habitmanApp')
                 user.prod = 0;
                 user.joblevel++;
                 $scope.jobtitle = titles[user.joblevel];
-                user.wage = Math.round(100 * (user.wage + user.wage * .05)) / 100;
+                user.wage = salary[user.joblevel]/2;
                 $scope.hourlyWage = user.wage;
                 user.stress++;
             }
@@ -110,6 +113,13 @@ angular.module('habitmanApp')
             }
             return "width: " + user.determination + "%;";
         };
+        $scope.buyTrans = function() {
+            if (user.lifeSavings > 1000) {
+                user.lifeSavings -= 1000;
+                user.vehicleLevel++;
+                $scope.transport = vehicles[user.vehicleLevel];
+            }
+        }
         //buttons to raise the habit progress bars
         $scope.nap = function() {
             user.sleep += user.sleepSkill - user.stress * user.weeklyHours / 100;

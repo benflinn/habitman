@@ -39,6 +39,7 @@ angular.module('habitmanApp')
                 $scope.habitpower = user.habitpower;
                 $scope.exerSkill = user.exerSkill;
             }
+        }
 
             $scope.upgradediet = function() {
                 if (user.habitpower > 0) {
@@ -70,6 +71,4 @@ angular.module('habitmanApp')
                 }
             }
 
-        }
-
-    });
+        });

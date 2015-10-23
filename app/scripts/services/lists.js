@@ -315,13 +315,28 @@ app.service('sharedProperties', function() {
         'Elon Musk'
     ];
 
+    var transport = ['Old Broomstick','Scooter','Antique Bicycle','Skateboard','Barrel','Baby Carriage','Push Cart','Conveyor Belt','Stroller','Sleigh','Tricycle','Raft','Longboard','Stronger Legs','Unicycle','Dray','Dog Cart','Toboggan','Mountain Bike','Wheelbarrow','Fixie Bicycle','Dugout Canoe','Life Raft','Oxcart','Wheelchair','Canoe','Kayak','Donkey Cart','Pedal Boat','Dogsled','Rowboat','Hay Wagon','Road Bicycle','Umiak','Outrigger Canoe','Covered Wagon','Dinghy','Caravel','Surrey','Caravan','Jalopy','Dirt Bike','Diving Bell','Parachute','Chariot','Go-Cart','Pro Bicycle','Segway','Buggy','Boxcar','Ice Boat','Carriage','Hang Glider','Vespa','1999 TDI VW Jetta','Hovercraft',
+'Fishing Boat','Golf Cart','Snowmobile','Hot Rod','Used Olympic Bobsled','Compact Car','Jet Ski','Yawl','Zamboni','Tractor','Delivery Van','Ultralight Craft','Caboose','Minivan','Velotilt Bicycle','Taxi','Camper','Hatchback','Town Car','Model T','Sedan','Motorcycle','Sailboat','Delivery Truck','Station Wagon','Jeep','Two-Door','Narrowboat','School Bus','Van','Speedboat','Coupe','Subcompact Car','Snowplow','Lorry','Hybrid','Hot Air Balloon','Steamboat','Hearse','Rv','Suv','Flatbed Truck','Minibus','Limo','Convertible','Pick-Up Truck','Riverboat','Sports Car','Bionic Legs','Garbage Truck','Bus','Bulldozer','Eighteen-Wheeler','Biplane','Crop Duster','Armored Car','Bathyscaphe',
+'Electric Car','Stretch Limo','Police Car','Tow Truck','Seaplane','Plane','Stock Car','Ambulance','Humvee','Amphibious Vehicle','Jet Pack','Dump Truck','Houseboat','Combine','Racecar','Blimp','Cabin Cruiser','Motor Home','Hydroplane','Helicopter','Crane','Galleon','Submersible','Fireboat','Tugboat','Earth Mover','Barge','Personal Ski Lift','Fire Engine','Clipper Ship','Yacht','Tank','Gondola','Locomotive','Cargo Ship','U-Boat','Forklift','SR-21','Zeppelin','Rocket','Tanker','Oil Tanker','Jetliner','Personal Monorail','Satellite','Ferry','Submarine','Battleship','Frigate','Personal Subway System','Jumbo Jet','Ocean Liner','Cruise Ship','Bomber','Private Jet','Destroyer','Mars Rover',
+'Warship','Personal Maglev','Space Shuttle','Aircraft Carrier','Bullet Train','Magic Carpet','Space Ship'];
+
+    var salary = [15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 28, 29, 30, 30.25, 30.5, 30.75, 31, 31.25, 31.5, 31.75, 32, 32.25, 32.5, 32.75, 33, 33.25, 33.5, 33.75, 34, 34.25, 34.5, 34.75, 35, 35.25, 35.5, 35.75, 36, 36.25, 36.5, 36.75, 37, 37.25, 37.5, 37.75, 38, 38.25, 38.5, 38.75, 39, 39.25, 39.5, 39.75, 40, 40.25, 40.5, 
+    40.75, 41, 41.25, 41.5, 41.75, 42, 42.25, 42.5, 42.75, 43, 43.25, 43.5, 43.75, 44, 44.25, 44.5, 44.75, 45, 45.25, 45.5, 45.75, 46, 46.25, 46.5, 46.75, 47, 47.25, 47.5, 47.75, 48, 48.25, 48.5, 48.75, 49, 49.25, 49.5, 49.75, 50, 50.25, 50.5, 50.75, 51, 51.25, 51.5, 51.75, 52, 52.25, 52.5, 52.75, 53, 53.25, 53.5, 53.75, 54, 54.25, 54.5, 54.75, 55, 55.25, 55.5, 55.75, 56, 56.25, 56.5, 56.75, 57, 57.25, 
+    57.5, 57.75, 58, 58.25, 58.5, 58.75, 59, 59.25, 59.5, 59.75, 60, 60.25, 60.5, 60.75, 61, 61.25, 61.5, 61.75, 62, 62.25, 62.5, 62.75, 63, 63.25, 63.5, 63.75, 64, 64.25, 64.5, 64.75, 65, 65.25, 65.5, 65.75, 66, 66.25, 66.5, 66.75, 67, 67.25, 67.5, 67.75, 68, 68.25, 68.5, 68.75, 69, 69.25, 69.5, 69.75, 70, 70.25, 70.5, 70.75, 71, 71.25, 71.5, 71.75, 72, 72.25, 72.5, 72.75, 73, 73.25, 73.5, 73.75, 74, 
+    74.25, 74.5, 74.75, 75, 75.25, 75.5, 75.75, 76, 76.25, 76.5, 76.75, 77, 77.25, 77.5, 77.75, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 
+    146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 9999999];
+   
+
     return {
         getTitles: function() {
             return titles;
         },
-        setTitles: function(value) {
-            titles = value;
+        getTrans: function() {
+            return transport;
         },
+        getSalary: function() {
+            return salary;
+        }
     }
 
     });

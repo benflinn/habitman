@@ -19,15 +19,13 @@ app.service('userStats', function() {
         age: 14,
         weeklyHours: 40,
         hourlyWage: 7.5,
-        lifeSavings: 1
+        lifeSavings: 1,
+        vehicleLevel: 0
     }
 
     return {
         getStats: function() {
             return user;
-        },
-        setStats: function(value) {
-            stats = value;
-        },
+        }
     }
 });
