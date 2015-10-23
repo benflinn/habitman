@@ -21,6 +21,7 @@ angular.module('habitmanApp')
         $scope.hourlyWage = user.wage;
         $scope.lifeSavings = user.lifeSavings;
         $scope.age = user.age;
+        $scope.weeklyHours = user.weeklyHours;
 
         //functions to give values to the progress bars
         $scope.prodStatus = function() {
@@ -144,16 +145,18 @@ angular.module('habitmanApp')
                 user.age = Math.round(10000 * (user.age + .0024)) / 10000;
                 $scope.age = user.age;
 
-                //add variance & add stress
+                //add variance & add stress to habit progress bars
                 user.sleep = user.sleep + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.sleepSkill / 20;
                 user.determination = user.determination + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.detSkill / 20;
                 user.diet = user.diet + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.dietSkill / 20;
                 user.exercise = user.exercise + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.exerSkill / 20;
                 user.goals = user.goals + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.goalSkill / 20;
+                
                 //calculate productivity
                 user.prod = user.prod + user.sleep / 100 + user.diet / 100 + user.exercise / 100 + user.determination / 100 + user.goals / 100 - 2.5;
+                
+                //apply $scope updates
                 $scope.$apply();
-                console.log(userStats.getStats());
             }
             //starting the update cycle
         setInterval(function() {

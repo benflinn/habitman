@@ -28,17 +28,19 @@ var app = angular
     })
     .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
     })
     .when('/upgrade', {
         templateUrl: 'views/upgrade.html',
+        controller: 'UpgradeCtrl',
+        controllerAs: 'upgd'
     })
     .when('/howtoplay', {
         templateUrl: 'views/howtoplay.html',
     })
     .when('/training', {
         templateUrl: 'views/training.html',
+        controller: 'TrainCtrl',
+        controllerAs: 'train'
     })
     .otherwise({
         redirectTo: '/'
