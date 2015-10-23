@@ -41,11 +41,11 @@
                             </tr>
                             <tr>
                                 <td>Transportation:</td>
-                                <td><span class="label label-color" id="transLabel">Legs</span></td>
+                                <td><span class="label label-color" id="transLabel">{{transportation}}</span></td>
                             </tr>
                             <tr>
                                 <td>Home:</td>
-                                <td><span class="label label-color">Park Bench</span></td>
+                                <td><span class="label label-color">{{currentHome}}</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -164,7 +164,7 @@
                         <button ng-click="buyTrans()" type="button" class="btn btn-lg">{{transport}} for ${{transPrice}}</button>
                     </p>
                     <p>Home Upgrade:
-                        <button type="button" class="btn btn-lg" id="homeup">Shack for $1000</button>
+                        <button class="btn btn-lg" ng-click="upgradeHome()">{{nextHome}} for ${{homePrice}}</button>
                     </p>
                     <p>Pay Taxes:
                         <button ng-click="payTax()" type="button" class="btn btn-lg">${{tax}}</button>

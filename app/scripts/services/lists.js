@@ -334,11 +334,11 @@ app.service('sharedProperties', function() {
     ];
 
     var habittips = [
-        ['Maintain a regular sleep schedule', 'Take a short nap', 'Avoid eating 2 hours before bed', 'Get sunshine in the morning', 'Use the free program flux', 'Keep a cool bedroom', "Don't drink alcohol before bed", "Don't drink caffeine after noon", 'Read before bed', "Don't stay up on the weekend"],
+        ['Take a short nap', 'Maintain a regular sleep schedule', 'Avoid eating 2 hours before bed', 'Get sunshine in the morning', 'Use the free program flux', 'Keep a cool bedroom', "Don't drink alcohol before bed", "Don't drink caffeine after noon", 'Read before bed', "Don't stay up on the weekend"],
         ["Maintain a regular exercise schedule", "Set realistic exercise goals", "Work out with a buddy", "Enjoy working out! Be happy!", "Take the stairs", "Make excuses to walk & do stairs", "Keep an exercise log", "Do exercises you love!", "Follow youtube exercise videos!", "Exercise every day!"],
-        ["Drink plenty of water", "Don't eat after dinner", "Eat protein with every meal", "Stock up on healthy, convenient foods", "Eat more veggies", "Always have breakfast", "Lose weight slowly", "Keep a food diary", "Use lots of spices!", "Eat lots of healthy, filling food"],
-        ["Make specific goals", "Make measurable goals", "Make accountable goals", "Make realistic goals", "Estimate the necessary time frame", "Make firm decisions", "Organize priorities", "Write things down", "Make an action plan", "Track progress"],
-        ["Find your passion", "Free yourself of energy vampires", 'Learn to say "no" to futility', "Save yourself, not the whole world", "Focus on your goal", "Focus on your well-being", "Focus on your happiness", "Find your balance", "Be positive", "Be grateful"]
+        ["Stay hydrated & fed", "Don't eat after dinner", "Eat protein with every meal", "Stock up on healthy, convenient foods", "Eat more veggies", "Always have breakfast", "Lose weight slowly", "Keep a food diary", "Use lots of spices!", "Eat lots of healthy, filling food"],
+        ["Make specific goals", "Make measurable goals", "Make accountable goals", "Make realistic goals", "Estimate the necessary time frame", "Make firm decisions", "Organize priorities", "Write down goals", "Make an action plan", "Track progress"],
+        ["Find your true purpose", "Free yourself of energy vampires", 'Learn to say "no" to futility', "Save yourself, not the whole world", "Meditate on your purpose", "Focus on your well-being", "Focus on your happiness", "Remember who you are", "Be positive", "Be grateful"]
     ];
 
     var problems = [
@@ -348,6 +348,9 @@ app.service('sharedProperties', function() {
         ['You work aimlessly.', "You don't work.", 'You feel like your work never ends.', 'You prefer games because they are rewarding', "You don't have priorities.", 'You are overwhelmed with stuff to do.', 'You play video games all day and still feel good about yourself.', 'Your projects rarely succeed.', 'You are easily distracted.', 'You spend a lot of time on social media.'],
         ['You feel depressed.', 'You are unmotivated.', "You don't care about your work.", "You don't have anything you really care about.", "You don't have any idea what to do with your life.", 'You feel unmotivated', 'You never feel like singing.', 'You don’t say "thank you"', 'You hate everything.', 'You want to lay in bed all day.']
     ]
+
+    var homes = ['Hut','Hovel','Fancy Treehouse', 'Small House', 'Large House', 'Mansion', 'Operahouse', 'Castle', 'Private Island'];
+    var homesPrice = [1000, 3000, 5000, 20000, 100000, 500000, 2000000, 10000000, 30000000];
 
 
 
@@ -369,6 +372,12 @@ app.service('sharedProperties', function() {
         },
         getProblems: function() {
             return problems;
+        },
+        getHomes: function() {
+            return homes;
+        },
+        getHomesPrices: function() {
+            return homesPrice;
         }
     }
 

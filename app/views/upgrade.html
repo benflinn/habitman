@@ -22,28 +22,28 @@
                         <div class="col-md-4 margintop30">
                              <h3>Sleep habits</h3>
                              <p>Skill Level: <span class="label label-color">{{sleepSkill}}</span></p>
-                             <p>Latest habit learned: <span class="label label-color">GOING TO BED</span></p>
-                            <button ng-click="upgradesleep()">
-                                <p>Upgrade to level {{sleepSkill+1}}</p>
-                                <p>USING FLUX</p>
+                             <p>Latest habit learned: <p class="label label-color">{{prevsleeplabel}}</p></p>
+                            <button class="btn btn-lg" ng-click="upgradesleep()">
+                                <p>Upgrade to level {{sleepSkill+1}}:</p>
+                                <p>{{sleeplabel}}</p>
                             </button>
                         </div>
                         <div class="col-md-4 margintop30">
                              <h3>Exercise habits</h3>
                              <p>Skill Level: <span class="label label-color">{{exerSkill}}</span></p>
-                             <p>Latest habit learned: <span class="label label-color">RUNNING</span></p>
-                            <button ng-click="upgradeexer()">
-                                <p>Upgrade to level {{exerSkill+1}}</p>
-                                <p>RIGHT SHOES</p>
+                             <p>Latest habit learned: <p class="label label-color">{{prevexerlabel}}</p></p>
+                            <button class="btn btn-lg" ng-click="upgradeexer()">
+                                <p>Upgrade to level {{exerSkill+1}}:</p>
+                                <p>{{exerlabel}}</p>
                             </button>
                         </div>
                         <div class="col-md-4 margintop30">
                              <h3>Diet habits</h3>
                              <p>Skill Level: <span class="label label-color">{{dietSkill}}</span></p>
-                             <p>Latest habit learned: <span class="label label-color">EAT VEGGIES</span></p>
-                            <button ng-click="upgradediet()">
-                                <p>Upgrade to level {{dietSkill+1}}</p>
-                                <p>NO ICE CREAM</p>
+                             <p>Latest habit learned: <p class="label label-color">{{prevdietlabel}}</p></p>
+                            <button class="btn btn-lg" ng-click="upgradediet()">
+                                <p>Upgrade to level {{dietSkill+1}}:</p>
+                                <p>{{dietlabel}}</p>
                             </button>
                         </div>
                     </div>
@@ -51,19 +51,19 @@
                         <div class="col-md-4 margintop30">
                              <h3>Goal habits</h3>
                              <p>Skill Level: <span class="label label-color">{{goalSkill}}</span></p>
-                             <p>Latest habit learned: <span class="label label-color">WRITTEN GOALS</span></p>
-                            <button ng-click="upgradegoals()">
-                                <p>Upgrade to level {{goalSkill+1}}</p>
-                                <p>HOW TO MAKE GOALS</p>
+                             <p>Latest habit learned: <p class="label label-color">{{prevgoalslabel}}</p></p>
+                            <button class="btn btn-lg" ng-click="upgradegoals()">
+                                <p>Upgrade to level {{goalSkill+1}}:</p>
+                                <p>{{goalslabel}}</p>
                             </button>
                         </div>
                         <div class="col-md-4 margintop30">
                              <h3>Determination habits</h3>
                              <p>Skill Level: <span class="label label-color">{{detSkill}}</span></p>
-                             <p>Latest habit learned: <span class="label label-color">RUTHLESSNESS</span></p>
-                            <button ng-click="upgradedet()">
-                                <p>Upgrade to level {{detSkill+1}}</p>
-                                <p>INCORRIGIBILITY</p>
+                             <p>Latest habit learned: <p class="label label-color">{{prevdetlabel}}</p></p>
+                            <button class="btn btn-lg" ng-click="upgradedet()">
+                                <p>Upgrade to level {{detSkill+1}}:</p>
+                                <p>{{detlabel}}</p>
                             </button>
                         </div>
                     </div>

@@ -17,6 +17,8 @@ angular.module('habitmanApp')
         var vehicles = sharedProperties.getTrans();
         var salary = sharedProperties.getSalary();
         var transPrices = sharedProperties.getTransPrices();
+        var homes = sharedProperties.getHomes();
+        var homesPrices = sharedProperties.getHomesPrices();
 
         //show initial stats
         $scope.habitpower = user.habitpower;
@@ -26,8 +28,12 @@ angular.module('habitmanApp')
         $scope.age = user.age;
         $scope.weeklyHours = user.weeklyHours;
         $scope.transport = vehicles[user.vehicleLevel];
+        $scope.transportation = "Legs";
         $scope.transPrice = transPrices[user.vehicleLevel];
         $scope.tax = user.taxOwed;
+        $scope.currentHome = "Park bench";
+        $scope.nextHome = homes[user.homeLevel];
+        $scope.homePrice = homesPrices[user.homeLevel];
 
         //functions to give values to the progress bars
         $scope.prodStatus = function() {
@@ -35,9 +41,14 @@ angular.module('habitmanApp')
                 user.prod = 0;
                 user.joblevel++;
                 $scope.jobtitle = titles[user.joblevel];
-                user.wage = salary[user.joblevel]/2;
+                user.wage = salary[user.joblevel] / 2;
                 $scope.hourlyWage = user.wage;
-                user.stress++;
+                user.stress += user.stressMultiplier;
+                user.sleep = 0;
+                user.exercise = 0;
+                user.diet = 0;
+                user.goals = 0;
+                user.determination = 0;
             }
             if (user.prod < 0) {
                 user.prod = 0;
@@ -117,28 +128,29 @@ angular.module('habitmanApp')
             return "width: " + user.determination + "%;";
         };
         $scope.buyTrans = function() {
-            if (user.lifeSavings > transPrices[user.vehicleLevel]) {
-                user.lifeSavings -= transPrices[user.vehicleLevel];
-                user.vehicleLevel++;
-                $scope.transport = vehicles[user.vehicleLevel];
-                $scope.transPrice = transPrices[user.vehicleLevel];
+                if (user.lifeSavings > transPrices[user.vehicleLevel]) {
+                    user.lifeSavings -= transPrices[user.vehicleLevel];
+                    $scope.transportation = vehicles[user.vehicleLevel];
+                    user.vehicleLevel++;
+                    $scope.transport = vehicles[user.vehicleLevel];
+                    $scope.transPrice = transPrices[user.vehicleLevel];
+                }
             }
-        }
-        //buttons to raise the habit progress bars
+            //buttons to raise the habit progress bars
         $scope.nap = function() {
-            user.sleep += user.sleepSkill - user.stress * user.weeklyHours / 100;
+            user.sleep += user.sleepSkill * 20 - user.stress * user.weeklyHours / 100;
         }
         $scope.walk = function() {
-            user.exercise += user.exerSkill - user.stress * user.weeklyHours / 100;
+            user.exercise += user.exerSkill * 20 - user.stress * user.weeklyHours / 100;
         }
         $scope.snack = function() {
-            user.diet += user.dietSkill - user.stress * user.weeklyHours / 100;
+            user.diet += user.dietSkill * 20 - user.stress * user.weeklyHours / 100;
         }
         $scope.plan = function() {
-            user.goals += user.goalSkill - user.stress * user.weeklyHours / 100;
+            user.goals += user.goalSkill * 20 - user.stress * user.weeklyHours / 100;
         }
         $scope.focus = function() {
-            user.determination += user.detSkill - user.stress * user.weeklyHours / 100;
+            user.determination += user.detSkill * 20 - user.stress * user.weeklyHours / 100;
         }
         $scope.rotateHours = function() {
             user.weeklyHours += 20;
@@ -160,6 +172,15 @@ angular.module('habitmanApp')
                 $scope.lifeSavings = user.lifeSavings;
             }
         }
+        $scope.upgradeHome = function() {
+            user.lifeSavings -= homesPrices[user.homeLevel];
+            $scope.currentHome = homes[user.homeLevel];
+            user.stress = 0;
+            user.stressMultiplier++;
+            user.homeLevel++;
+            $scope.nextHome = homes[user.homeLevel];
+            $scope.homePrice = homesPrices[user.homeLevel];
+        }
 
         //function for each half second update
         var oneSecond = function() {
@@ -177,17 +198,22 @@ angular.module('habitmanApp')
                 $scope.age = user.age;
 
                 //add variance & add stress to habit progress bars
-                user.sleep = user.sleep + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.sleepSkill / 20;
-                user.determination = user.determination + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.detSkill / 20;
-                user.diet = user.diet + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.dietSkill / 20;
-                user.exercise = user.exercise + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.exerSkill / 20;
-                user.goals = user.goals + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.goalSkill / 20;
-                
+                user.sleep = user.sleep + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 150 + user.sleepSkill;
+                user.determination = user.determination + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 150 + user.detSkill;
+                user.diet = user.diet + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 150 + user.dietSkill;
+                user.exercise = user.exercise + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 150 + user.exerSkill;
+                user.goals = user.goals + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 150 + user.goalSkill;
+
                 //calculate productivity
                 user.prod = user.prod * ((user.vehicleLevel * .005) + 1) + user.sleep / 100 + user.diet / 100 + user.exercise / 100 + user.determination / 100 + user.goals / 100 - 2.5;
-                
+
                 //apply $scope updates
                 $scope.$apply();
+
+                //pester for taxes
+                if (user.taxOwed > 100000) {
+                    alert("the government wants their tax on your income");
+                }
             }
             //starting the update cycle
         setInterval(function() {
