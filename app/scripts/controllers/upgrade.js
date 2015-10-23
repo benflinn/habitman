@@ -16,28 +16,49 @@ angular.module('habitmanApp')
         $scope.habitpower = user.habitpower;
 
         $scope.upgradesleep = function() {
-        	user.sleepSkill++;
-        	console.log(user.sleepSkill);
+        	if (user.habitpower > 0) {
+            user.sleepSkill++;
+            console.log(user.sleepSkill);
+            user.habitpower--;
+            $scope.habitpower = user.habitpower;
+        }
         }
 
         $scope.upgradeexer = function() {
-        	user.exerSkill++;
-        	console.log(user.exerSkill);
+        	if (user.habitpower > 0) {
+            user.exerSkill++;
+            console.log(user.exerSkill);
+            user.habitpower--;
+            $scope.habitpower = user.habitpower;
         }
 
         $scope.upgradediet = function() {
-        	user.dietSkill++;
-        	console.log(user.dietSkill);
+        	if (user.habitpower > 0) {
+            user.dietSkill++;
+            console.log(user.dietSkill);
+            user.habitpower--;
+            $scope.habitpower = user.habitpower;
+        }
         }
 
         $scope.upgradegoals = function() {
-        	user.goalSkill++;
-        	console.log(user.goalSkill);
+        	if (user.habitpower > 0) {
+            user.goalSkill++;
+            console.log(user.goalSkill);
+            user.habitpower--;
+            $scope.habitpower = user.habitpower;
+        }
         }
 
         $scope.upgradedet = function() {
-        	user.detSkill++;
-        	console.log(user.detSkill);
+            if (user.habitpower > 0) {
+                user.detSkill++;
+                console.log(user.detSkill);
+                user.habitpower--;
+                $scope.habitpower = user.habitpower;
+            }
+        }
+
         }
 
     });
