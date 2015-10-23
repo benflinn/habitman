@@ -13,4 +13,8 @@ angular.module('habitmanApp')
         //getting userData
         var user = userStats.getStats();
 
+        $scope.habitpowercheat = function() {
+        	user.habitpower += 100;
+        }
+
     });

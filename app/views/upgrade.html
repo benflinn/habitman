@@ -17,14 +17,35 @@
                     <h3 class="panel-title">Upgrade Habits</h3>
                 </div>
                 <div class="panel-body centered">
-                    <h3>Available Habit Power: <span class="label label-color">{{habitpower}}</span></h3>
-                    <button ng-click="upgradesleep()">upgrade sleep</button>
-                    <button ng-click="upgradeexer()">upgrade exercise</button>
-                    <button ng-click="upgradediet()">upgrade diet</button>
-                    <button ng-click="upgradegoals()">upgrade goals</button>
-                    <button ng-click="upgradedet()">upgrade determination</button>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h3>Available Habit Power: <span class="label label-color">{{habitpower}}</span></h3> Sleep habit level: {{sleepSkill}}
+                            <button ng-click="upgradesleep()">upgrade sleep</button>
+                        </div>
+                        <div class="col-md-8">
+                            Exercise habit level: {{exerSkill}}<button ng-click="upgradeexer()">upgrade exercise</button>
+                        </div>
+                        <div class="col-md-8">
+                            Diet habit level: {{dietSkill}}
+                            <button ng-click="upgradediet()">upgrade diet</button>
+                        </div>
+                        <div class="col-md-8">
+                            Goals habit level: {{goalSkill}}
+                            <button ng-click="upgradegoals()">upgrade goals</button>
+                        </div>
+                        <div class="col-md-8">
+                            Determination habit level: {{detSkill}}
+                            <button ng-click="upgradedet()">upgrade determination</button>
+                        </div>
+                        <div class="col-md-8">
+                            <a href="#/home">
+                                <button href="#/" class="btn btn-lg">Back</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
