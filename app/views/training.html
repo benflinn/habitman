@@ -17,8 +17,15 @@
                     <h3 class="panel-title">Training</h3>
                 </div>
                 <div class="panel-body centered">
-                    <h3>Yet to be designed.</h3>
-                    <button ng-click="habitpowercheat()">Click here to get 100 habit power.</button>
+                    <h3>Two symptoms:</h3>
+                    <p>{{symptom}}</p>
+                    <p>{{symptom2}}</p>
+                    <div class="row">
+                        <div class="col-md-6" ng-repeat="choice in choices track by $index">
+                            <button class="btn btn-lg margintop30" ng-click="response($index)">{{choice}}</button>
+                        </div>
+                    </div>
+                    <h3 class="margintop30">{{hpEarned}} Habit power earned!!</h3>
                     <a href="#/home"><button href="#/" class="btn btn-lg">Back</button></a>
                 </div>
             </div>

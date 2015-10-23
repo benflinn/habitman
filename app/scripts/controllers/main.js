@@ -16,6 +16,7 @@ angular.module('habitmanApp')
         var user = userStats.getStats();
         var vehicles = sharedProperties.getTrans();
         var salary = sharedProperties.getSalary();
+        var transPrices = sharedProperties.getTransPrices();
 
         //show initial stats
         $scope.habitpower = user.habitpower;
@@ -25,6 +26,8 @@ angular.module('habitmanApp')
         $scope.age = user.age;
         $scope.weeklyHours = user.weeklyHours;
         $scope.transport = vehicles[user.vehicleLevel];
+        $scope.transPrice = transPrices[user.vehicleLevel];
+        $scope.tax = user.taxOwed;
 
         //functions to give values to the progress bars
         $scope.prodStatus = function() {
@@ -114,10 +117,11 @@ angular.module('habitmanApp')
             return "width: " + user.determination + "%;";
         };
         $scope.buyTrans = function() {
-            if (user.lifeSavings > 1000) {
-                user.lifeSavings -= 1000;
+            if (user.lifeSavings > transPrices[user.vehicleLevel]) {
+                user.lifeSavings -= transPrices[user.vehicleLevel];
                 user.vehicleLevel++;
                 $scope.transport = vehicles[user.vehicleLevel];
+                $scope.transPrice = transPrices[user.vehicleLevel];
             }
         }
         //buttons to raise the habit progress bars
@@ -143,6 +147,19 @@ angular.module('habitmanApp')
             }
             $scope.weeklyHours = user.weeklyHours;
         }
+        $scope.payTax = function() {
+            if (user.lifeSavings > user.taxOwed) {
+                user.lifeSavings -= user.taxOwed;
+                user.taxOwed = 0;
+                $scope.tax = user.taxOwed;
+                $scope.lifeSavings = user.lifeSavings;
+            } else {
+                user.taxOwed -= user.lifeSavings;
+                user.lifeSavings = 0;
+                $scope.tax = user.taxOwed;
+                $scope.lifeSavings = user.lifeSavings;
+            }
+        }
 
         //function for each half second update
         var oneSecond = function() {
@@ -150,6 +167,10 @@ angular.module('habitmanApp')
                 //add on money and update in DOM
                 user.lifeSavings = Math.round(user.lifeSavings + user.hourlyWage * user.weeklyHours / 8.3);
                 $scope.lifeSavings = user.lifeSavings;
+
+                //add on tax
+                user.taxOwed = Math.round(user.taxOwed + user.hourlyWage * user.weeklyHours / 20);
+                $scope.tax = user.taxOwed;
 
                 //add on age and update in DOM
                 user.age = Math.round(10000 * (user.age + .0024)) / 10000;
@@ -163,7 +184,7 @@ angular.module('habitmanApp')
                 user.goals = user.goals + 2 - 4 * Math.random() - user.stress * user.weeklyHours / 100 + user.goalSkill / 20;
                 
                 //calculate productivity
-                user.prod = user.prod + user.sleep / 100 + user.diet / 100 + user.exercise / 100 + user.determination / 100 + user.goals / 100 - 2.5;
+                user.prod = user.prod * ((user.vehicleLevel * .005) + 1) + user.sleep / 100 + user.diet / 100 + user.exercise / 100 + user.determination / 100 + user.goals / 100 - 2.5;
                 
                 //apply $scope updates
                 $scope.$apply();

@@ -20,7 +20,8 @@ app.service('userStats', function() {
         weeklyHours: 40,
         hourlyWage: 7.5,
         lifeSavings: 1,
-        vehicleLevel: 0
+        vehicleLevel: 0,
+        taxOwed: 0
     }
 
     return {
