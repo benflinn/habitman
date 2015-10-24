@@ -23,7 +23,9 @@ app.service('userStats', function() {
         vehicleLevel: 0,
         taxOwed: 0,
         stressMultiplier: 1,
-        homeLevel: 0
+        homeLevel: 0,
+        tier: 1,
+        spentHP: 0
     }
 
     return {

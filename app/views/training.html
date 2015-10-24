@@ -17,9 +17,10 @@
                     <h3 class="panel-title">Training</h3>
                 </div>
                 <div class="panel-body centered">
-                    <h3>Two symptoms:</h3>
-                    <p>{{symptom}}</p>
-                    <p>{{symptom2}}</p>
+                    <h4>During your daily work, you notice two symptoms:</h4>
+                    <h3>{{symptom}}</h3>
+                    <h3>{{symptom2}}</h3>
+                    <h4 class="margintop30">Which health tip addresses these problems?</h4>
                     <div class="row">
                         <div class="col-md-6" ng-repeat="choice in choices track by $index">
                             <button class="btn btn-lg margintop30" ng-click="response($index)">{{choice}}</button>

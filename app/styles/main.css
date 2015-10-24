@@ -26,14 +26,17 @@ body {
 .jumbotron {
     background: rgba(102, 68, 0, 0.8);
 }
+
 .nav li a {
     background-color: rgba(51, 153, 102, .5);
     color: white;
 }
+
 .nav li a:hover {
     background: rgba(185, 244, 54, .8);
     color: black;
 }
+
 .active a {
     background-color: rgba(51, 153, 102, .9)!important;
     color: white;
@@ -43,6 +46,7 @@ body {
     color: white;
     font-weight: bold;
     border: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button {
@@ -52,6 +56,15 @@ button {
 
 button:hover {
     background: rgba(185, 244, 54, .8);
+}
+
+button:active {
+    position: relative;
+    top: 2px;
+}
+
+button:focus {
+    outline: 0px!important;
 }
 
 .progress {
@@ -91,9 +104,11 @@ button:hover {
 .margin20 {
     margin: 20px;
 }
+
 tr {
     height: 50px;
 }
+
 .margintop30 {
     margin-top: 30px
 }

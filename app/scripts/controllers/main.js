@@ -173,13 +173,14 @@ angular.module('habitmanApp')
             }
         }
         $scope.upgradeHome = function() {
-            user.lifeSavings -= homesPrices[user.homeLevel];
-            $scope.currentHome = homes[user.homeLevel];
-            user.stress = 0;
-            user.stressMultiplier++;
-            user.homeLevel++;
-            $scope.nextHome = homes[user.homeLevel];
-            $scope.homePrice = homesPrices[user.homeLevel];
+            if (homesPrices[user.homeLevel] < user.lifeSavings) {
+                user.lifeSavings -= homesPrices[user.homeLevel];
+                $scope.currentHome = homes[user.homeLevel];
+                user.stress = 0;
+                user.homeLevel++;
+                $scope.nextHome = homes[user.homeLevel];
+                $scope.homePrice = homesPrices[user.homeLevel];
+            }
         }
 
         //function for each half second update
@@ -209,11 +210,6 @@ angular.module('habitmanApp')
 
                 //apply $scope updates
                 $scope.$apply();
-
-                //pester for taxes
-                if (user.taxOwed > 100000) {
-                    alert("the government wants their tax on your income");
-                }
             }
             //starting the update cycle
         setInterval(function() {

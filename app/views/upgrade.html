@@ -66,6 +66,14 @@
                                 <p>{{detlabel}}</p>
                             </button>
                         </div>
+                        <div class="col-md-4 margintop30">
+                             <h3>Upgrade to Higher Tier</h3>
+                             <p>Current tier: <span class="label label-color">{{currentTier}}</span></p>
+                             <p>Spend 30 habit power to enable ascension!</p>
+                            <button class="btn btn-lg" ng-class="disabled" ng-click="upgradeTier()">
+                                <h3>Ascend to Tier {{currentTier + 1}}!</h3>
+                            </button>
+                        </div>
                     </div>
                         <div class="col-md-12 margintop30">
                             <a href="#/home">
