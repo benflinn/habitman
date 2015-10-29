@@ -15,6 +15,7 @@ angular.module('habitmanApp')
         var tips = sharedProperties.getTips();
         var problems = sharedProperties.getProblems();
         $scope.hpEarned = 0;
+        $scope.HPmultiplier = user.homeLevel + 1;
 
         var nextProblem = function() {
             //select problem category & two good problem hints
@@ -58,14 +59,12 @@ angular.module('habitmanApp')
             $scope.choices = choices;
             $scope.response = function(index) {
                 if (index == replace) {
-                    user.habitpower++;
-                    $scope.hpEarned++;
+                    user.habitpower += user.homeLevel + 1;
+                    $scope.hpEarned += user.homeLevel + 1;
                     nextProblem();
                 } else {
-                	if (user.habitpower > 0) {
-                		user.habitpower--;
-                		$scope.hpEarned--;
-                	}
+                		user.habitpower -= user.homeLevel + 1;
+                		$scope.hpEarned -= user.homeLevel + 1;
                 }
             }
         }

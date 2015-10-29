@@ -23,20 +23,23 @@ angular.module('habitmanApp')
         $scope.goalSkill = user.goalSkill;
         $scope.detSkill = user.detSkill;
 
-        $scope.prevsleeplabel = tips[0][user.sleepSkill - 1];
-        $scope.sleeplabel = tips[0][user.sleepSkill];
-        $scope.prevexerlabel = tips[1][user.exerSkill - 1];
-        $scope.exerlabel = tips[1][user.exerSkill];
-        $scope.prevdietlabel = tips[2][user.dietSkill - 1];
-        $scope.dietlabel = tips[2][user.dietSkill];
-        $scope.prevgoalslabel = tips[3][user.goalSkill - 1];
-        $scope.goalslabel = tips[3][user.goalSkill];
-        $scope.prevdetlabel = tips[4][user.detSkill - 1];
-        $scope.detlabel = tips[4][user.detSkill];
+        $scope.prevsleeplabel = tips[0][user.sleepSkill % 10 - 1];
+        $scope.sleeplabel = tips[0][user.sleepSkill % 10];
+        $scope.prevexerlabel = tips[1][user.exerSkill % 10 - 1];
+        $scope.exerlabel = tips[1][user.exerSkill % 10];
+        $scope.prevdietlabel = tips[2][user.dietSkill % 10 - 1];
+        $scope.dietlabel = tips[2][user.dietSkill % 10];
+        $scope.prevgoalslabel = tips[3][user.goalSkill % 10 - 1];
+        $scope.goalslabel = tips[3][user.goalSkill % 10];
+        $scope.prevdetlabel = tips[4][user.detSkill % 10 - 1];
+        $scope.detlabel = tips[4][user.detSkill % 10];
 
         $scope.currentTier = user.tier;
 
         $scope.disabled = "disabled";
+        if (user.spentHP > nextTierlevel) {
+            $scope.disabled = "";
+        }
 
         $scope.upgradeTier = function() {
             if (user.spentHP > nextTierlevel) {
@@ -44,6 +47,7 @@ angular.module('habitmanApp')
                 $scope.currentTier = user.tier;
                 nextTierlevel += 30;
                 $scope.disabled = "disabled";
+                user.stress = 0;
             }
 
         }

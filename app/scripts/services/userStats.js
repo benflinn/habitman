@@ -25,7 +25,13 @@ app.service('userStats', function() {
         stressMultiplier: 1,
         homeLevel: 0,
         tier: 1,
-        spentHP: 0
+        spentHP: 0,
+        familyTime: 0,
+        familyMembers: {
+            1: 'wife'
+        },
+        familyBudget: 0,
+        familyIndex: 0
     }
 
     return {
