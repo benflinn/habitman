@@ -184,13 +184,13 @@
                     <p class="panel-title">Store</p>
                 </div>
                 <div class="panel-body">
-                    <p>Transportation Upgrade:
+                    <p ng-show="upgradedHome">Transportation Upgrade:
                         <button title="Transportation upgrades increase the acceleration of your productivity" ng-click="buyTrans()" type="button" class="btn btn-lg">{{transport}} for {{transPrice | currency}}</button>
                     </p>
                     <p>Home Upgrade:
                         <button title="Improved housing increases your habit power multiplier" class="btn btn-lg" ng-click="upgradeHome()">{{nextHome}} for {{homePrice | currency}}</button>
                     </p>
-                    <p>Pay Taxes:
+                    <p ng-show="taxstart">Pay Taxes:
                         <button title="Currently, paying taxes does absolutely nothing" ng-click="payTax()" type="button" class="btn btn-lg">{{tax | currency}}</button>
                     </p>
                 </div>
