@@ -53,7 +53,8 @@ button {
 }
 
 button:hover {
-    background: rgba(185, 244, 54, .8);
+    background: rgba(31, 140, 86, .8);
+    color: white !important;
 }
 
 button:active {
