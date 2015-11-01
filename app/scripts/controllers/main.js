@@ -257,7 +257,7 @@ angular.module('habitmanApp')
 
                 //add on age and update in DOM
                 user.age = Math.round(10000 * (user.age + .0024)) / 10000;
-                $scope.age = user.age;
+                $scope.age = user.age.toFixed(2);
 
                 //add variance & add stress to habit progress bars
                 user.sleep = user.sleep + 2 - 4 * Math.random() - user.tier * user.stress * user.weeklyHours / 150 + user.sleepSkill;
