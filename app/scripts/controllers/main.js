@@ -37,6 +37,14 @@ angular.module('habitmanApp')
         $scope.familyMembers = user.familyMembers;
         $scope.familyBudget = user.familyBudget;
 
+        if (user.homeLevel > 3) {
+            $scope.family = true;
+        }
+
+        if (user.homeLevel > 0) {
+            $scope.upgradedHome = true;
+        }
+
 
         if (user.vehicleLevel == 0) {
             $scope.transportation = "Legs";
@@ -58,6 +66,9 @@ angular.module('habitmanApp')
                 user.diet = 0;
                 user.goals = 0;
                 user.determination = 0;
+                if (user.wage > 10) {
+                    $scope.taxStart = true;
+                }
             }
             if (user.prod < 0) {
                 user.prod = 0;
@@ -208,8 +219,11 @@ angular.module('habitmanApp')
                 user.homeLevel++;
                 $scope.nextHome = homes[user.homeLevel];
                 $scope.homePrice = homesPrices[user.homeLevel];
-                if (user.vehicleLevel > 3) {
+                if (user.homeLevel > 3) {
                     $scope.family = true;
+                }
+                if (user.homeLevel > 0) {
+                    $scope.upgradedHome = true;
                 }
             }
         }
@@ -236,8 +250,10 @@ angular.module('habitmanApp')
                 }
 
                 //add on tax
-                user.taxOwed = Math.round(user.taxOwed + user.hourlyWage * user.weeklyHours / 20);
-                $scope.tax = user.taxOwed;
+                if ($scope.taxStart) {
+                    user.taxOwed = Math.round(user.taxOwed + user.hourlyWage * user.weeklyHours / 20);
+                    $scope.tax = user.taxOwed;
+                }
 
                 //add on age and update in DOM
                 user.age = Math.round(10000 * (user.age + .0024)) / 10000;
@@ -251,7 +267,7 @@ angular.module('habitmanApp')
                 user.goals = user.goals + 2 - 4 * Math.random() - user.tier * user.stress * user.weeklyHours / 150 + user.goalSkill;
 
                 //calculate productivity
-                user.prod = user.prod + (user.sleep / 1000 + user.diet / 1000 + user.exercise / 1000 + user.determination / 1000 + user.goals / 1000) * ((user.vehicleLevel * .3) + 1) - .25;
+                user.prod = user.prod + (user.sleep / 1000 + user.diet / 1000 + user.exercise / 1000 + user.determination / 1000 + user.goals / 1000) * ((user.vehicleLevel * .8) + 1) - .25;
 
                 //apply $scope updates
                 $scope.$apply();

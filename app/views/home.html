@@ -29,7 +29,7 @@
                             </tr>
                             <tr>
                                 <td>Life savings:</td>
-                                <td>$<span class="label label-color" id="moneylabel">{{lifeSavings}}</span></td>
+                                <td><span class="label label-color" id="moneylabel">{{lifeSavings|currency}}</span></td>
                             </tr>
                             <tr>
                                 <td>Job title:</td>
@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <td>Hourly wage:</td>
-                                <td>$<span class="label label-color" id="wagelabel">{{hourlyWage}}</span></td>
+                                <td><span class="label label-color" id="wagelabel">{{hourlyWage|currency}}</span></td>
                             </tr>
                             <tr>
                                 <td>Transportation:</td>
@@ -184,13 +184,13 @@
                     <p class="panel-title">Store</p>
                 </div>
                 <div class="panel-body">
-                    <p>Transportation Upgrade:
+                    <p ng-show="upgradedHome">Transportation Upgrade:
                         <button title="Transportation upgrades increase the acceleration of your productivity" ng-click="buyTrans()" type="button" class="btn btn-lg">{{transport}} for ${{transPrice}}</button>
                     </p>
                     <p>Home Upgrade:
                         <button title="Improved housing increases your habit power multiplier" class="btn btn-lg" ng-click="upgradeHome()">{{nextHome}} for ${{homePrice}}</button>
                     </p>
-                    <p>Pay Taxes:
+                    <p ng-show="taxStart">Pay Taxes:
                         <button title="Currently, paying taxes does absolutely nothing" ng-click="payTax()" type="button" class="btn btn-lg">${{tax}}</button>
                     </p>
                 </div>
