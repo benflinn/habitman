@@ -4,6 +4,9 @@ body {
     background-size: cover;
     margin: auto auto;
     padding: 10px;
+    font-weight: bold;
+    border: 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .panel {
@@ -20,10 +23,12 @@ body {
 
 .panel-transparent .panel-body {
     background: rgba(236, 228, 194, 0.9);
+    font-size: 18px;
 }
 
 .panel-transparent .panel-heading, .jumbotron {
     background: rgba(94, 87, 71, .9);
+    color: white;
 }
 
 .nav li a {
@@ -41,12 +46,6 @@ body {
     color: white;
 }
 
-* {
-    color: white;
-    font-weight: bold;
-    border: 0px;
-    font-family: 'Montserrat', sans-serif;
-}
 
 button {
     background-color: rgba(51, 153, 102, .6);
