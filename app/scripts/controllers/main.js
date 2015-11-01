@@ -227,7 +227,7 @@ angular.module('habitmanApp')
 
                 //add on money and update in DOM
                 user.lifeSavings = Math.round(user.lifeSavings + user.hourlyWage * user.weeklyHours / 8.3 - user.familyBudget / 8);
-                $scope.lifeSavings = user.lifeSavings;
+                $scope.lifeSavings = user.lifeSavings.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
                 user.familyIndex = user.familyIndex + user.familyTime * user.familyBudget;
                 if (user.familyIndex > 20000000) {
