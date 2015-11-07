@@ -33,7 +33,8 @@ app.service('userStats', function() {
             1: 'wife'
         },
         familyBudget: 0,
-        familyIndex: 0
+        familyIndex: 0,
+        nextTierlevel: 29
     }
 
     return {

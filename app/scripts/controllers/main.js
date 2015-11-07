@@ -20,8 +20,6 @@ angular.module('habitmanApp')
         var homes = sharedProperties.getHomes();
         var homesPrices = sharedProperties.getHomesPrices();
 
-        console.log(titles.length);
-
         //show initial stats
         $scope.habitpower = user.habitpower;
         $scope.jobtitle = titles[user.joblevel];

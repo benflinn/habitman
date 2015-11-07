@@ -62,6 +62,7 @@ angular.module('habitmanApp')
                     user.habitpower += user.homeLevel + 1;
                     $scope.hpEarned += user.homeLevel + 1;
                     nextProblem();
+                    $('*:focus').blur();
                 } else {
                 		user.habitpower -= user.homeLevel + 1;
                 		$scope.hpEarned -= user.homeLevel + 1;

@@ -13,9 +13,10 @@ angular.module('habitmanApp')
         //getting userData
         var user = userStats.getStats();
         var tips = sharedProperties.getTips();
-        var nextTierlevel = 29;
 
         $scope.habitpower = user.habitpower;
+        $scope.spentHP = 0;
+        $scope.nextTier = 30;
 
         $scope.sleepSkill = user.sleepSkill;
         $scope.exerSkill = user.exerSkill;
@@ -23,29 +24,30 @@ angular.module('habitmanApp')
         $scope.goalSkill = user.goalSkill;
         $scope.detSkill = user.detSkill;
 
-        $scope.prevsleeplabel = tips[0][user.sleepSkill % 10 - 1];
+        $scope.prevsleeplabel = tips[0][(user.sleepSkill - 1) % 10];
         $scope.sleeplabel = tips[0][user.sleepSkill % 10];
-        $scope.prevexerlabel = tips[1][user.exerSkill % 10 - 1];
+        $scope.prevexerlabel = tips[1][(user.exerSkill - 1) % 10];
         $scope.exerlabel = tips[1][user.exerSkill % 10];
-        $scope.prevdietlabel = tips[2][user.dietSkill % 10 - 1];
+        $scope.prevdietlabel = tips[2][(user.dietSkill - 1) % 10];
         $scope.dietlabel = tips[2][user.dietSkill % 10];
-        $scope.prevgoalslabel = tips[3][user.goalSkill % 10 - 1];
+        $scope.prevgoalslabel = tips[3][(user.goalSkill - 1) % 10];
         $scope.goalslabel = tips[3][user.goalSkill % 10];
-        $scope.prevdetlabel = tips[4][user.detSkill % 10 - 1];
+        $scope.prevdetlabel = tips[4][(user.detSkill - 1) % 10];
         $scope.detlabel = tips[4][user.detSkill % 10];
 
         $scope.currentTier = user.tier;
 
         $scope.disabled = "disabled";
-        if (user.spentHP > nextTierlevel) {
+        if (user.spentHP > user.nextTierlevel) {
             $scope.disabled = "";
         }
 
         $scope.upgradeTier = function() {
-            if (user.spentHP > nextTierlevel) {
+            if (user.spentHP > user.nextTierlevel) {
                 user.tier++;
                 $scope.currentTier = user.tier;
-                nextTierlevel += 30;
+                user.nextTierlevel += 30;
+                $scope.nextTier = user.nextTierlevel + 1;
                 $scope.disabled = "disabled";
                 user.stress = 0;
             }
@@ -54,7 +56,8 @@ angular.module('habitmanApp')
 
         function updateTierButton() {
             user.spentHP++;
-            if (user.spentHP > nextTierlevel) {
+            $scope.spentHP = user.spentHP;
+            if (user.spentHP > user.nextTierlevel) {
                 $scope.disabled = "";
             }
         }
@@ -65,7 +68,7 @@ angular.module('habitmanApp')
                 user.habitpower--;
                 $scope.habitpower = user.habitpower;
                 $scope.sleepSkill = user.sleepSkill;
-                $scope.prevsleeplabel = tips[0][user.sleepSkill % 10 - 1];
+                $scope.prevsleeplabel = tips[0][(user.sleepSkill - 1) % 10];
                 $scope.sleeplabel = tips[0][user.sleepSkill % 10];
                 updateTierButton();
             }
@@ -77,7 +80,7 @@ angular.module('habitmanApp')
                 user.habitpower--;
                 $scope.habitpower = user.habitpower;
                 $scope.exerSkill = user.exerSkill;
-                $scope.prevexerlabel = tips[1][user.exerSkill % 10 - 1];
+                $scope.prevexerlabel = tips[1][(user.exerSkill - 1) % 10];
                 $scope.exerlabel = tips[1][user.exerSkill % 10];
                 updateTierButton();
             }
@@ -90,7 +93,7 @@ angular.module('habitmanApp')
                 $scope.habitpower = user.habitpower;
                 $scope.dietSkill = user.dietSkill;
 
-                $scope.prevdietlabel = tips[2][user.dietSkill % 10 - 1];
+                $scope.prevdietlabel = tips[2][(user.dietSkill - 1) % 10];
                 $scope.dietlabel = tips[2][user.dietSkill % 10];
                 updateTierButton();
             }
@@ -102,7 +105,7 @@ angular.module('habitmanApp')
                 user.habitpower--;
                 $scope.habitpower = user.habitpower;
                 $scope.goalSkill = user.goalSkill;
-                $scope.prevgoalslabel = tips[3][user.goalSkill % 10 - 1];
+                $scope.prevgoalslabel = tips[3][(user.goalSkill - 1) % 10];
                 $scope.goalslabel = tips[3][user.goalSkill % 10];
                 updateTierButton();
             }
@@ -115,7 +118,7 @@ angular.module('habitmanApp')
                 user.habitpower--;
                 $scope.habitpower = user.habitpower;
                 $scope.detSkill = user.detSkill;
-                $scope.prevdetlabel = tips[4][user.detSkill % 10 - 1];
+                $scope.prevdetlabel = tips[4][(user.detSkill - 1) % 10];
                 $scope.detlabel = tips[4][user.detSkill % 10];
                 updateTierButton();
             }
