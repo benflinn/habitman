@@ -1,3 +1,5 @@
+'use strict';
+
 app.service('userStats', function() {
 
     var user = {

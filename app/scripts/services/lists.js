@@ -1,3 +1,5 @@
+'use strict';
+
 app.service('sharedProperties', function() {
     var titles = [
         'Bagging Clerk',
