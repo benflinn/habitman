@@ -89,9 +89,9 @@ angular.module('habitmanApp')
                 user.sleep = 0;
             }
             if (user.sleep > 50) {
-                $scope.sleepImage = 'sleep.png';
+                $scope.sleepImage = 'images/sleep.png';
             } else {
-                $scope.sleepImage = 'nosleep.png';
+                $scope.sleepImage = 'images/nosleep.png';
             }
             return "width: " + user.sleep + "%;";
         };
@@ -103,9 +103,9 @@ angular.module('habitmanApp')
                 user.exercise = 0;
             }
             if (user.exercise > 50) {
-                $scope.exerImage = 'exer.png';
+                $scope.exerImage = 'images/exer.png';
             } else {
-                $scope.exerImage = 'noexer.png';
+                $scope.exerImage = 'images/noexer.png';
             }
 
             return "width: " + user.exercise + "%;";
@@ -118,9 +118,9 @@ angular.module('habitmanApp')
                 user.diet = 0;
             }
             if (user.diet > 50) {
-                $scope.dietImage = 'diet.png';
+                $scope.dietImage = 'images/diet.png';
             } else {
-                $scope.dietImage = 'nodiet.png';
+                $scope.dietImage = 'images/nodiet.png';
             }
 
             return "width: " + user.diet + "%;";
@@ -133,9 +133,9 @@ angular.module('habitmanApp')
                 user.goals = 0;
             }
             if (user.goals > 50) {
-                $scope.goalImage = 'goals.png';
+                $scope.goalImage = 'images/goals.png';
             } else {
-                $scope.goalImage = 'nogoals.png';
+                $scope.goalImage = 'images/nogoals.png';
             }
             return "width: " + user.goals + "%;";
         };
@@ -147,9 +147,9 @@ angular.module('habitmanApp')
                 user.determination = 0;
             }
             if (user.determination > 50) {
-                $scope.detImage = 'determine.png';
+                $scope.detImage = 'images/determine.png';
             } else {
-                $scope.detImage = 'nodetermine.png';
+                $scope.detImage = 'images/nodetermine.png';
             }
             return "width: " + user.determination + "%;";
         };
