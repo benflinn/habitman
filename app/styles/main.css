@@ -112,8 +112,23 @@ tr {
     margin-top: 30px
 }
 
-.floatimg {
-    float: left;
+.panel-title {font-size:20px; font-weight: bold;}
+
+.boy {
+    background-image: url('../images/boy.png');
+    background-repeat: no-repeat;
 }
 
-.panel-title {font-size:20px; font-weight: bold;}
+.girl {
+    background-image: url('../images/girl.png');
+    background-repeat: no-repeat;
+}
+
+.wife {
+    background-image: url('../images/wife.png');
+    background-repeat: no-repeat;
+}
+.family {
+    height: 200px;
+    width: 120px;
+}
