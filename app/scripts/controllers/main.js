@@ -20,6 +20,8 @@ angular.module('habitmanApp')
         var homes = sharedProperties.getHomes();
         var homesPrices = sharedProperties.getHomesPrices();
 
+        console.log(titles.length);
+
         //show initial stats
         $scope.habitpower = user.habitpower;
         $scope.jobtitle = titles[user.joblevel];
@@ -30,7 +32,7 @@ angular.module('habitmanApp')
         $scope.transport = vehicles[user.vehicleLevel];
         $scope.transPrice = transPrices[user.vehicleLevel];
         $scope.tax = user.taxOwed;
-        $scope.currentHome = "Park bench";
+        
         $scope.nextHome = homes[user.homeLevel];
         $scope.homePrice = homesPrices[user.homeLevel];
         $scope.familyTime = 10;
@@ -41,6 +43,7 @@ angular.module('habitmanApp')
             $scope.family = true;
         }
 
+        $scope.currentHome = "Park bench";
         if (user.homeLevel > 0) {
             $scope.upgradedHome = true;
             $scope.currentHome = homes[user.homeLevel - 1];
@@ -55,7 +58,7 @@ angular.module('habitmanApp')
 
         //functions to give values to the progress bars
         $scope.prodStatus = function() {
-            if (user.prod > 100) {
+            if (user.prod > 100 && user.joblevel < 312) {
                 user.prod = 20;
                 user.joblevel++;
                 $scope.jobtitle = titles[user.joblevel];
@@ -70,6 +73,8 @@ angular.module('habitmanApp')
                 if (user.wage > 10) {
                     $scope.taxStart = true;
                 }
+            } else if (user.joblevel == 312) {
+                user.prod = 100;
             }
             if (user.prod < 0) {
                 user.prod = 0;
@@ -241,7 +246,7 @@ angular.module('habitmanApp')
         var oneSecond = function() {
 
                 //add on money and update in DOM
-                user.lifeSavings = Math.round(user.lifeSavings + user.hourlyWage * user.weeklyHours / 8.3 - user.familyBudget / 8);
+                user.lifeSavings = Math.round(user.lifeSavings + user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
                 $scope.lifeSavings = user.lifeSavings;
 
                 user.familyIndex = user.familyIndex + user.familyTime * user.familyBudget;
@@ -252,7 +257,7 @@ angular.module('habitmanApp')
 
                 //add on tax
                 if ($scope.taxStart) {
-                    user.taxOwed = Math.round(user.taxOwed + user.hourlyWage * user.weeklyHours / 20);
+                    user.taxOwed = Math.round(user.taxOwed + user.wage * user.weeklyHours / 20);
                     $scope.tax = user.taxOwed;
                 }
 
