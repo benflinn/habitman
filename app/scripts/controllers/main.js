@@ -43,6 +43,7 @@ angular.module('habitmanApp')
 
         if (user.homeLevel > 0) {
             $scope.upgradedHome = true;
+            $scope.currentHome = homes[user.homeLevel - 1];
         }
 
 
