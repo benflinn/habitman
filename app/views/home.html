@@ -65,11 +65,16 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-9 margin20">
-                            <img class="img-responsive img-rounded layer" ng-src="{{goalImage}}">
-                            <img class="img-responsive img-rounded layer" ng-src="{{detImage}}">
-                            <img class="img-responsive img-rounded layer" ng-src="{{sleepImage}}">
-                            <img class="img-responsive img-rounded layer" ng-src="{{exerImage}}">
-                            <img class="img-responsive img-rounded layer" ng-src="{{dietImage}}">
+                            <img class="img-responsive img-rounded layer" ng-src="images/goals.png" ng-show="goalImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/nogoals.png" ng-hide="goalImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/determine.png" ng-show="detImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/nodetermine.png" ng-hide="detImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/exer.png" ng-show="exerImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/noexer.png" ng-hide="exerImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/diet.png" ng-show="dietImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/nodiet.png" ng-hide="dietImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/sleep.png" ng-show="sleepImage">
+                            <img class="img-responsive img-rounded layer" ng-src="images/nosleep.png" ng-hide="sleepImage">
                             <img class="img-responsive img-rounded" src="images/blank.png">
                         </div>
                     </div>

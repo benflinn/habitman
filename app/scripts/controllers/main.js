@@ -89,9 +89,9 @@ angular.module('habitmanApp')
                 user.sleep = 0;
             }
             if (user.sleep > 50) {
-                $scope.sleepImage = 'images/sleep.png';
+                $scope.sleepImage = true;
             } else {
-                $scope.sleepImage = 'images/nosleep.png';
+                $scope.sleepImage = false;
             }
             return "width: " + user.sleep + "%;";
         };
@@ -103,9 +103,9 @@ angular.module('habitmanApp')
                 user.exercise = 0;
             }
             if (user.exercise > 50) {
-                $scope.exerImage = 'images/exer.png';
+                $scope.exerImage = true;
             } else {
-                $scope.exerImage = 'images/noexer.png';
+                $scope.exerImage = false;
             }
 
             return "width: " + user.exercise + "%;";
@@ -118,9 +118,9 @@ angular.module('habitmanApp')
                 user.diet = 0;
             }
             if (user.diet > 50) {
-                $scope.dietImage = 'images/diet.png';
+                $scope.dietImage = true;
             } else {
-                $scope.dietImage = 'images/nodiet.png';
+                $scope.dietImage = false;
             }
 
             return "width: " + user.diet + "%;";
@@ -133,9 +133,9 @@ angular.module('habitmanApp')
                 user.goals = 0;
             }
             if (user.goals > 50) {
-                $scope.goalImage = 'images/goals.png';
+                $scope.goalImage = true;
             } else {
-                $scope.goalImage = 'images/nogoals.png';
+                $scope.goalImage = false;
             }
             return "width: " + user.goals + "%;";
         };
@@ -147,9 +147,9 @@ angular.module('habitmanApp')
                 user.determination = 0;
             }
             if (user.determination > 50) {
-                $scope.detImage = 'images/determine.png';
+                $scope.detImage = true;
             } else {
-                $scope.detImage = 'images/nodetermine.png';
+                $scope.detImage = false;
             }
             return "width: " + user.determination + "%;";
         };
