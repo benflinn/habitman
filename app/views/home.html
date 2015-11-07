@@ -1,63 +1,22 @@
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">Habit Man</a>
+            <p class="navbar-text"><i>Start a new working life and learn great habits!</i>
+                <p>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <ul class="nav navbar-nav">
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/howtoplay">How to Play</a></li>
+        </ul>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3">
-            <div class="jumbotron">
-                <h1 class="text-center">Habit Man</h1>
-                <p>Start a new working life and learn great habits!</p>
-                <ul class="nav nav-pills" role="tablist">
-                    <li role="presentation" class="active"><a href="#/home">Home</a></li>
-                    <li role="presentation"><a href="#/about">About</a></li>
-                    <li role="presentation"><a href="#/howtoplay">How to Play</a></li>
-                </ul>
-            </div>
-            <div class="panel panel-default panel-transparent">
-                <div class="panel-heading">
-                    <p class="panel-title">Progress</p>
-                </div>
-                <div class="panel-body">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>Age:</td>
-                                <td><span class="" id="agelabel">{{age}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Weekly hours:</td>
-                                <td><span class="" id="hourslabel">{{weeklyHours}}</span>
-                                    <button title="More hours, more money, more stress" type="button" ng-click="rotateHours()" class="btn">Change hours</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Life savings:</td>
-                                <td><span class="text-success" id="moneylabel">{{lifeSavings | currency}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Job title:</td>
-                                <td><span class="" id="joblabel">{{jobtitle}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Hourly wage:</td>
-                                <td><span class="text-success" id="wagelabel">{{hourlyWage | currency}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Transportation:</td>
-                                <td><span class="" id="transLabel">{{transportation}}</span></td>
-                            </tr>
-                            <tr>
-                                <td>Home:</td>
-                                <td><span class="">{{currentHome}}</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="progress">
-                        <div class="progress-bar active" style="{{prodStatus()}}">
-                            <p class="progress-text">Productivity</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
+        <div class="col-lg-5 col-lg-push-1">
             <div class="panel panel-default panel-transparent">
                 <div class="panel-heading">
                     <h3 class="panel-title">Your Body</h3>
@@ -80,126 +39,177 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default panel-transparent" ng-show="family">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Your family</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>Weekly family time: <span class="">{{familyTime}}</span>
-                                <button class="btn" ng-click="rotateFamilyHours()">Change family hours</button>
-                            </p>
-                        </div>
-                        <div class="col-md-12">
-                            <p>Weekly family budget: <span class="">{{familyBudget | currency}}</span>
-                                <button class="btn" ng-click="changeFamilyBudget()">Change family budget</button>
-                            </p>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="col-xs-3" ng-repeat="member in familyMembers">
-                                <img class="img-responsive img-rounded family margintop30" ng-class="member">
-                            </div>
-                        </div>
+            
+
+        <div class="panel panel-default panel-transparent">
+            <div class="panel-heading">
+                <p class="panel-title">Progress</p>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Age:</td>
+                            <td><span class="" id="agelabel">{{age}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Weekly hours:</td>
+                            <td><span class="" id="hourslabel">{{weeklyHours}}</span>
+                                <button title="More hours, more money, more stress" type="button" ng-click="rotateHours()" class="btn">Change hours</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Life savings:</td>
+                            <td><span class="text-success" id="moneylabel">{{lifeSavings | currency}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Job title:</td>
+                            <td><span class="" id="joblabel">{{jobtitle}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Hourly wage:</td>
+                            <td><span class="text-success" id="wagelabel">{{hourlyWage | currency}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Transportation:</td>
+                            <td><span class="" id="transLabel">{{transportation}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Home:</td>
+                            <td><span class="">{{currentHome}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="progress">
+                    <div class="progress-bar" style="{{prodStatus()}}">
+                        <p class="progress-text">Productivity</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-5">
-            <div class="panel panel-default panel-transparent">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Status</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="nap()">Nap</button>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress">
-                                <div class="progress-bar active" style="{{sleepStatus()}}">
-                                    <p class="progress-text">Sleep</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button title="Click this as much as you want" title="Click this as much as you want" class="full-width btn btn-lg" ng-click="walk()">Walk</button>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress">
-                                <div class="progress-bar active" style="{{exerStatus()}}">
-                                    <p class="progress-text">Exercise</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="snack()">Snack</button>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress">
-                                <div class="progress-bar active" style="{{dietStatus()}}">
-                                    <p class="progress-text">Diet</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="plan()">Plan</button>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress">
-                                <div class="progress-bar active" style="{{goalStatus()}}">
-                                    <p class="progress-text">Goals</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="focus()">Focus</button>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="progress">
-                                <div class="progress-bar active" style="{{detStatus()}}">
-                                    <p class="progress-text">Determination</p>
-                                </div>
-                            </div>
-                        </div>
+
+        <div class="panel panel-default panel-transparent">
+                <div class="panel panel-default panel-transparent" ng-show="family">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Your family</h3>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#/upgrade">
-                                <button title="Invest your habit power here by upgrading habits" class="btn full-width btn-lg">Upgrade<img src="images/arrow.png"></button>
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#/training">
-                                <button title="Earn habit power here" class="btn full-width btn-lg">Training <img src="images/weight.png"></button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3></h3>
-                            <p class="text-center"><span class="">{{ habitpower }}</span> Habit Power ready to be invested</p>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>Weekly family time: <span class="">{{familyTime}}</span>
+                                    <button class="btn" ng-click="rotateFamilyHours()">Change family hours</button>
+                                </p>
+                            </div>
+                            <div class="col-md-12">
+                                <p>Weekly family budget: <span class="">{{familyBudget | currency}}</span>
+                                    <button class="btn" ng-click="changeFamilyBudget()">Change family budget</button>
+                                </p>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-xs-3" ng-repeat="member in familyMembers">
+                                    <img class="img-responsive img-rounded family margintop30" ng-class="member">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.col-sm-4 -->
-            <div class="panel panel-default panel-transparent">
-                <div class="panel-heading">
-                    <p class="panel-title">Store</p>
+    </div>
+    <div class="col-lg-5 col-lg-push-1">
+        <div class="panel panel-default panel-transparent">
+            <div class="panel-heading">
+                <h3 class="panel-title">Status</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="nap()">Nap</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar" style="{{sleepStatus()}}">
+                                <p class="progress-text">Sleep</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button title="Click this as much as you want" title="Click this as much as you want" class="full-width btn btn-lg" ng-click="walk()">Walk</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar" style="{{exerStatus()}}">
+                                <p class="progress-text">Exercise</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="snack()">Snack</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar" style="{{dietStatus()}}">
+                                <p class="progress-text">Diet</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="plan()">Plan</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar" style="{{goalStatus()}}">
+                                <p class="progress-text">Goals</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button title="Click this as much as you want" class="full-width btn btn-lg" ng-click="focus()">Focus</button>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar" style="{{detStatus()}}">
+                                <p class="progress-text">Determination</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel-body">
-                    <p ng-show="upgradedHome">Transportation Upgrade:
-                        <button title="Transportation upgrades increase the acceleration of your productivity" ng-click="buyTrans()" type="button" class="btn btn-lg">{{transport}} for {{transPrice | currency}}</button>
-                    </p>
-                    <p>Home Upgrade:
-                        <button title="Improved housing increases your habit power multiplier" class="btn btn-lg" ng-click="upgradeHome()">{{nextHome}} for {{homePrice | currency}}</button>
-                    </p>
-                    <p ng-show="taxStart">Pay Taxes:
-                        <button title="Currently, paying taxes does absolutely nothing" ng-click="payTax()" type="button" class="btn btn-lg">{{tax | currency}}</button>
-                    </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#/upgrade">
+                            <button title="Invest your habit power here by upgrading habits" class="btn full-width btn-lg">Upgrade<img src="images/arrow.png"></button>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#/training">
+                            <button title="Earn habit power here" class="btn full-width btn-lg">Training <img src="images/weight.png"></button>
+                        </a>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3></h3>
+                        <p class="text-center"><span class="">{{ habitpower }}</span> Habit Power ready to be invested</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-sm-4 -->
+        <div class="panel panel-default panel-transparent">
+            <div class="panel-heading">
+                <p class="panel-title">Store</p>
+            </div>
+            <div class="panel-body">
+                <p ng-show="upgradedHome">Transportation Upgrade:
+                    <button title="Transportation upgrades increase the acceleration of your productivity" ng-click="buyTrans()" type="button" class="btn btn-lg">{{transport}} for {{transPrice | currency}}</button>
+                </p>
+                <p>Home Upgrade:
+                    <button title="Improved housing increases your habit power multiplier" class="btn btn-lg" ng-click="upgradeHome()">{{nextHome}} for {{homePrice | currency}}</button>
+                </p>
+                <p ng-show="taxStart">Pay Taxes:
+                    <button title="Currently, paying taxes does absolutely nothing" ng-click="payTax()" type="button" class="btn btn-lg">{{tax | currency}}</button>
+                </p>
             </div>
         </div>
     </div>
+</div>
 </div>
