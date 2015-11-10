@@ -34,7 +34,8 @@ app.service('userStats', function() {
         },
         familyBudget: 0,
         familyIndex: 0,
-        nextTierlevel: 29
+        nextTierlevel: 29,
+        date: 0
     }
 
     return {

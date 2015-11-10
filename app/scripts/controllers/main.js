@@ -26,6 +26,26 @@ angular.module('habitmanApp')
         var currentHouseName = sharedProperties.getHouseNames();
         var count = 0;
 
+        //calculating time gone and adding money, age, tax
+        if (!user.date) {
+            user.date = Date.now();
+            $scope.welcomeback = true;
+        }
+        var dateDifference = Date.now() - user.date;
+        if (dateDifference > 20800000) {
+            dateDifference = 20800000;
+        }
+        var earned = dateDifference/500 * (user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
+        var aged = dateDifference/500 * (.0024);
+        var taxAdded = dateDifference/500 * (user.wage * user.weeklyHours / 20);
+        user.age += aged;
+        user.lifeSavings += earned;
+        user.taxOwed +=taxAdded;
+        aged = aged.toFixed(2);
+        $scope.aged = aged;
+        $scope.earned = earned;
+        $scope.taxAdded = taxAdded;
+
         //show initial stats
         $scope.habitpower = user.habitpower;
         $scope.jobtitle = titles[user.joblevel];
@@ -268,6 +288,7 @@ angular.module('habitmanApp')
         var oneSecond = function() {
             count++;
             if (count%5 == 0) {
+                user.date = Date.now();
                 localStorageService.set('gameData', user);
             }
             
@@ -288,7 +309,7 @@ angular.module('habitmanApp')
                 }
 
                 //add on age and update in DOM
-                user.age = Math.round(10000 * (user.age + .0024)) / 10000;
+                user.age = user.age + .0024;
                 $scope.age = user.age.toFixed(2);
 
                 //add variance & add stress to habit progress bars
