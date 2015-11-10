@@ -8,11 +8,17 @@
  * Controller of the habitmanApp
  */
 angular.module('habitmanApp')
-    .controller('UpgradeCtrl', function($scope, userStats, sharedProperties) {
+    .controller('UpgradeCtrl', function($scope, userStats, sharedProperties, localStorageService) {
 
         //getting userData
-        var user = userStats.getStats();
+        var pastData = localStorageService.get('gameData');
+        var user = pastData || userStats.getStats();
         var tips = sharedProperties.getTips();
+
+        //update local storage
+        function updateData() {
+            localStorageService.set('gameData', user);
+        }
 
         $scope.habitpower = user.habitpower;
         $scope.spentHP = 0;
@@ -50,6 +56,7 @@ angular.module('habitmanApp')
                 $scope.nextTier = user.nextTierlevel + 1;
                 $scope.disabled = "disabled";
                 user.stress = 0;
+                localStorageService.set('gameData', user);
             }
 
         }
@@ -60,6 +67,7 @@ angular.module('habitmanApp')
             if (user.spentHP > user.nextTierlevel) {
                 $scope.disabled = "";
             }
+            localStorageService.set('gameData', user);
         }
 
         $scope.upgradesleep = function() {

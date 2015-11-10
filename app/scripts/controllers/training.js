@@ -8,16 +8,19 @@
  * Controller of the habitmanApp
  */
 angular.module('habitmanApp')
-    .controller('TrainCtrl', function($scope, userStats, sharedProperties) {
+    .controller('TrainCtrl', function($scope, userStats, sharedProperties, localStorageService) {
+
+        var pastData = localStorageService.get('gameData');
 
         //getting userData
-        var user = userStats.getStats();
+        var user = pastData || userStats.getStats();
         var tips = sharedProperties.getTips();
         var problems = sharedProperties.getProblems();
         $scope.hpEarned = 0;
         $scope.HPmultiplier = user.homeLevel + 1;
 
         var nextProblem = function() {
+            localStorageService.set('gameData', user);
             //select problem category & two good problem hints
             var problemGroup = Math.floor(Math.random() * 5);
             var problemSymptom1 = Math.floor(Math.random() * 10);
@@ -66,7 +69,9 @@ angular.module('habitmanApp')
                 } else {
                 		user.habitpower -= user.homeLevel + 1;
                 		$scope.hpEarned -= user.homeLevel + 1;
+                        localStorageService.set('gameData', user);
                 }
+
             }
         }
         nextProblem();

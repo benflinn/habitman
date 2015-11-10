@@ -8,17 +8,27 @@
  * Controller of the habitmanApp
  */
 angular.module('habitmanApp')
-    .controller('MainCtrl', function($scope, sharedProperties, userStats) {
+    .controller('MainCtrl', function($scope, sharedProperties, userStats, localStorageService) {
         //grabbing titles from the service
         var titles = sharedProperties.getTitles();
 
-        //getting userData
-        var user = userStats.getStats();
+        var pastData = localStorageService.get('gameData');
+
+        //getting gameData
+        var user = pastData || userStats.getStats();
+
+        //update local storage
+        function updateData() {
+            localStorageService.set('gameData', user);
+        }
+
+        //lists of stuff to buy
         var vehicles = sharedProperties.getTrans();
         var salary = sharedProperties.getSalary();
         var transPrices = sharedProperties.getTransPrices();
         var homes = sharedProperties.getHomes();
         var homesPrices = sharedProperties.getHomesPrices();
+        var count = 0;
 
         //show initial stats
         $scope.habitpower = user.habitpower;
@@ -30,7 +40,7 @@ angular.module('habitmanApp')
         $scope.transport = vehicles[user.vehicleLevel];
         $scope.transPrice = transPrices[user.vehicleLevel];
         $scope.tax = user.taxOwed;
-        
+
         $scope.nextHome = homes[user.homeLevel];
         $scope.homePrice = homesPrices[user.homeLevel];
         $scope.familyTime = 10;
@@ -242,7 +252,11 @@ angular.module('habitmanApp')
 
         //function for each half second update
         var oneSecond = function() {
-
+            count++;
+            if (count%5 == 0) {
+                localStorageService.set('gameData', user);
+            }
+            
                 //add on money and update in DOM
                 user.lifeSavings = Math.round(user.lifeSavings + user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
                 $scope.lifeSavings = user.lifeSavings;
