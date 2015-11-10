@@ -27,7 +27,7 @@
                     <h3 class="panel-title">Welcome back!</h3>
                 </div>
                 <div class="panel-body">
-                    <h3>You were away for {{aged}} years</h3>
+                    <h3>You were away for {{aged}} years.</h3>
                     <h3>You worked hard!</h3>
                     <h3>You managed to save {{earned|currency}} for your life's savings.</h3>
                     <h3>{{taxAdded|currency}} was added to your tax bill.</h3>
@@ -228,10 +228,10 @@
             </div>
             <div class="panel panel-default panel-transparent">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Your Home <button ng-click="hidehome=!hidehome" class="btn">Show/hide home</button></h3>
+                    <h3 class="panel-title">Your Home <button ng-click="hidehome=!hidehome" class="btn">Show/hide</button></h3>
                 </div>
-                <div class="panel-body">
-                    <img src="../images/homes/hut.jpg" class="img-responsive" ng-class="currentHouseName" ng-hide="hidehome">
+                <div class="panel-body" ng-hide="hidehome">
+                    <img src="../images/homes/hut.jpg" class="img-responsive" ng-class="currentHouseName">
                 </div>
             </div>
         </div>

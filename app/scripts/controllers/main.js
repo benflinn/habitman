@@ -30,17 +30,19 @@ angular.module('habitmanApp')
         if (!user.date) {
             user.date = Date.now();
             $scope.welcomeback = true;
+        } else {
+            $scope.taxStart = true;
         }
         var dateDifference = Date.now() - user.date;
         if (dateDifference > 20800000) {
             dateDifference = 20800000;
         }
-        var earned = dateDifference/500 * (user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
-        var aged = dateDifference/500 * (.0024);
-        var taxAdded = dateDifference/500 * (user.wage * user.weeklyHours / 20);
+        var earned = dateDifference / 500 * (user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
+        var aged = dateDifference / 500 * (.0024);
+        var taxAdded = dateDifference / 500 * (user.wage * user.weeklyHours / 20);
         user.age += aged;
         user.lifeSavings += earned;
-        user.taxOwed +=taxAdded;
+        user.taxOwed += taxAdded;
         aged = aged.toFixed(2);
         $scope.aged = aged;
         $scope.earned = earned;
@@ -82,14 +84,14 @@ angular.module('habitmanApp')
         }
 
         if (user.wage > 10) {
-                    $scope.taxStart = true;
-                }
+            $scope.taxStart = true;
+        }
 
         $scope.reset = function() {
-            localStorage.clear();
-            location.reload();
-        }
-        //functions to give values to the progress bars
+                localStorage.clear();
+                location.reload();
+            }
+            //functions to give values to the progress bars
         $scope.prodStatus = function() {
             if (user.prod > 100 && user.joblevel < 312) {
                 user.prod = 20;
@@ -286,12 +288,12 @@ angular.module('habitmanApp')
 
         //function for each half second update
         var oneSecond = function() {
-            count++;
-            if (count%5 == 0) {
-                user.date = Date.now();
-                localStorageService.set('gameData', user);
-            }
-            
+                count++;
+                if (count % 5 == 0) {
+                    user.date = Date.now();
+                    localStorageService.set('gameData', user);
+                }
+
                 //add on money and update in DOM
                 user.lifeSavings = Math.round(user.lifeSavings + user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
                 $scope.lifeSavings = user.lifeSavings;
