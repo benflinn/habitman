@@ -353,7 +353,7 @@ app.service('sharedProperties', function() {
 
     var homes = ['Hut','Hovel','Fancy Treehouse', 'Small House', 'Large House', 'Mansion', 'Operahouse', 'Castle', 'Private Island'];
     var homesPrice = [1000, 3000, 5000, 20000, 100000, 500000, 2000000, 10000000, 30000000];
-
+    var currentHouseName = ["bench","hut","hovel","treehouse","smallhouse","largehouse","mansion","operahouse","castle","island"];
 
 
     return {
@@ -380,6 +380,9 @@ app.service('sharedProperties', function() {
         },
         getHomesPrices: function() {
             return homesPrice;
+        },
+        getHouseNames: function() {
+            return currentHouseName;
         }
     }
 

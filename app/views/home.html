@@ -11,6 +11,9 @@
             <li><a href="#/about">About</a></li>
             <li><a href="#/howtoplay">How to Play</a></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+              <li class="navbar-text"><button ng-click="reset()" class="btn">Reset all Progress</button></li>
+            </ul>
     </div>
     <!-- /.container-fluid -->
 </nav>
@@ -24,17 +27,17 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-9 margin20">
-                            <img class="img-responsive img-rounded layer" ng-src="images/goals.png" ng-show="goalImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/nogoals.png" ng-hide="goalImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/determine.png" ng-show="detImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/nodetermine.png" ng-hide="detImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/exer.png" ng-show="exerImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/noexer.png" ng-hide="exerImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/diet.png" ng-show="dietImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/nodiet.png" ng-hide="dietImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/sleep.png" ng-show="sleepImage">
-                            <img class="img-responsive img-rounded layer" ng-src="images/nosleep.png" ng-hide="sleepImage">
-                            <img class="img-responsive img-rounded" src="images/blank.png">
+                            <img class="img-responsive layer" ng-src="images/goals.png" ng-show="goalImage">
+                            <img class="img-responsive layer" ng-src="images/nogoals.png" ng-hide="goalImage">
+                            <img class="img-responsive layer" ng-src="images/determine.png" ng-show="detImage">
+                            <img class="img-responsive layer" ng-src="images/nodetermine.png" ng-hide="detImage">
+                            <img class="img-responsive layer" ng-src="images/exer.png" ng-show="exerImage">
+                            <img class="img-responsive layer" ng-src="images/noexer.png" ng-hide="exerImage">
+                            <img class="img-responsive layer" ng-src="images/diet.png" ng-show="dietImage">
+                            <img class="img-responsive layer" ng-src="images/nodiet.png" ng-hide="dietImage">
+                            <img class="img-responsive layer" ng-src="images/sleep.png" ng-show="sleepImage">
+                            <img class="img-responsive layer" ng-src="images/nosleep.png" ng-hide="sleepImage">
+                            <img class="img-responsive" src="images/blank.png">
                         </div>
                     </div>
                 </div>
@@ -55,7 +58,7 @@
                         <tr>
                             <td>Weekly hours:</td>
                             <td><span class="" id="hourslabel">{{weeklyHours}}</span>
-                                <button title="More hours, more money, more stress" type="button" ng-click="rotateHours()" class="btn">Change hours</button>
+                                <button title="More hours, more money, more stress" type="button" ng-click="rotateHours()" class="btn">Change hours <span class="glyphicon glyphicon-time"></span></button>
                             </td>
                         </tr>
                         <tr>
@@ -110,8 +113,8 @@
                                 </p>
                             </div>
                             <div class="col-md-12">
-                                <div class="col-sm-6 col-lg-3" ng-repeat="member in familyMembers">
-                                    <img class="img-responsive img-rounded family margintop30" ng-class="member">
+                                <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="member in familyMembers">
+                                    <img src="../images/blankkid.png" class="family margintop30" ng-class="member">
                                 </div>
                             </div>
                         </div>
@@ -212,6 +215,14 @@
                 <p ng-show="taxStart">Pay Taxes:
                     <button title="Currently, paying taxes does absolutely nothing" ng-click="payTax()" type="button" class="btn btn-lg">{{tax | currency}}</button>
                 </p>
+            </div>
+        </div>
+        <div class="panel panel-default panel-transparent">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your Home <button ng-click="hidehome=!hidehome" class="btn">Show/hide home</button></h3>
+            </div>
+            <div class="panel-body">
+                <img src="../images/homes/hut.jpg" class="img-responsive" ng-class="currentHouseName" ng-hide="hidehome">
             </div>
         </div>
     </div>

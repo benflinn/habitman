@@ -17,17 +17,13 @@ angular.module('habitmanApp')
         //getting gameData
         var user = pastData || userStats.getStats();
 
-        //update local storage
-        function updateData() {
-            localStorageService.set('gameData', user);
-        }
-
         //lists of stuff to buy
         var vehicles = sharedProperties.getTrans();
         var salary = sharedProperties.getSalary();
         var transPrices = sharedProperties.getTransPrices();
         var homes = sharedProperties.getHomes();
         var homesPrices = sharedProperties.getHomesPrices();
+        var currentHouseName = sharedProperties.getHouseNames();
         var count = 0;
 
         //show initial stats
@@ -40,10 +36,11 @@ angular.module('habitmanApp')
         $scope.transport = vehicles[user.vehicleLevel];
         $scope.transPrice = transPrices[user.vehicleLevel];
         $scope.tax = user.taxOwed;
+        $scope.currentHouseName = currentHouseName[user.homeLevel];
 
         $scope.nextHome = homes[user.homeLevel];
         $scope.homePrice = homesPrices[user.homeLevel];
-        $scope.familyTime = 10;
+        $scope.familyTime = user.familyTime;
         $scope.familyMembers = user.familyMembers;
         $scope.familyBudget = user.familyBudget;
 
@@ -64,6 +61,14 @@ angular.module('habitmanApp')
             $scope.transportation = vehicles[user.vehicleLevel - 1];
         }
 
+        if (user.wage > 10) {
+                    $scope.taxStart = true;
+                }
+
+        $scope.reset = function() {
+            localStorage.clear();
+            location.reload();
+        }
         //functions to give values to the progress bars
         $scope.prodStatus = function() {
             if (user.prod > 100 && user.joblevel < 312) {
@@ -81,6 +86,7 @@ angular.module('habitmanApp')
                 if (user.wage > 10) {
                     $scope.taxStart = true;
                 }
+                localStorageService.set('gameData', user);
             } else if (user.joblevel == 312) {
                 user.prod = 100;
             }
@@ -169,6 +175,7 @@ angular.module('habitmanApp')
                     user.vehicleLevel++;
                     $scope.transport = vehicles[user.vehicleLevel];
                     $scope.transPrice = transPrices[user.vehicleLevel];
+                    localStorageService.set('gameData', user);
                 }
 
             }
@@ -194,6 +201,7 @@ angular.module('habitmanApp')
                 user.weeklyHours = 20;
             }
             $scope.weeklyHours = user.weeklyHours;
+            localStorageService.set('gameData', user);
         }
         $scope.payTax = function() {
             if (user.lifeSavings > user.taxOwed) {
@@ -207,6 +215,7 @@ angular.module('habitmanApp')
                 $scope.tax = user.taxOwed;
                 $scope.lifeSavings = user.lifeSavings;
             }
+            localStorageService.set('gameData', user);
         }
 
         $scope.changeFamilyBudget = function() {
@@ -215,6 +224,7 @@ angular.module('habitmanApp')
                 user.familyBudget = 200;
             }
             $scope.familyBudget = user.familyBudget;
+            localStorageService.set('gameData', user);
         }
 
         function addChild() {
@@ -224,6 +234,7 @@ angular.module('habitmanApp')
             } else {
                 user.familyMembers[Object.keys(user.familyMembers).length + 1] = 'girl';
             }
+            localStorageService.set('gameData', user);
         }
 
         $scope.upgradeHome = function() {
@@ -239,6 +250,8 @@ angular.module('habitmanApp')
                 if (user.homeLevel > 0) {
                     $scope.upgradedHome = true;
                 }
+                $scope.currentHouseName = currentHouseName[user.homeLevel];
+                localStorageService.set('gameData', user);
             }
         }
 
@@ -248,6 +261,7 @@ angular.module('habitmanApp')
                 user.familyTime = 10;
             }
             $scope.familyTime = user.familyTime;
+            localStorageService.set('gameData', user);
         }
 
         //function for each half second update
