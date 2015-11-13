@@ -38,7 +38,7 @@ angular.module('habitmanApp')
             dateDifference = 2080000;
         }
         var earned = dateDifference / 500 * (user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
-        var aged = dateDifference / 500 * (.0024);
+        var aged = dateDifference / 500 * (0.0024);
         var taxAdded = dateDifference / 500 * (user.wage * user.weeklyHours / 20);
         user.age += aged;
         user.lifeSavings += earned;
@@ -77,7 +77,7 @@ angular.module('habitmanApp')
         }
 
 
-        if (user.vehicleLevel == 0) {
+        if (user.vehicleLevel === 0) {
             $scope.transportation = "Legs";
         } else {
             $scope.transportation = vehicles[user.vehicleLevel - 1];
@@ -90,7 +90,7 @@ angular.module('habitmanApp')
         $scope.reset = function() {
                 localStorage.clear();
                 location.reload();
-            }
+            };
             //functions to give values to the progress bars
         $scope.prodStatus = function() {
             if (user.prod > 100 && user.joblevel < 312) {
@@ -109,7 +109,7 @@ angular.module('habitmanApp')
                     $scope.taxStart = true;
                 }
                 localStorageService.set('gameData', user);
-            } else if (user.joblevel == 312) {
+            } else if (user.joblevel === 312) {
                 user.prod = 100;
             }
             if (user.prod < 0) {
@@ -200,23 +200,23 @@ angular.module('habitmanApp')
                     localStorageService.set('gameData', user);
                 }
 
-            }
+            };
             //buttons to raise the habit progress bars
         $scope.nap = function() {
             user.sleep += user.sleepSkill * 20 - user.stress * user.weeklyHours / 100;
-        }
+        };
         $scope.walk = function() {
             user.exercise += user.exerSkill * 20 - user.stress * user.weeklyHours / 100;
-        }
+        };
         $scope.snack = function() {
             user.diet += user.dietSkill * 20 - user.stress * user.weeklyHours / 100;
-        }
+        };
         $scope.plan = function() {
             user.goals += user.goalSkill * 20 - user.stress * user.weeklyHours / 100;
-        }
+        };
         $scope.focus = function() {
             user.determination += user.detSkill * 20 - user.stress * user.weeklyHours / 100;
-        }
+        };
         $scope.rotateHours = function() {
             user.weeklyHours += 20;
             if (user.weeklyHours > 110) {
@@ -224,7 +224,7 @@ angular.module('habitmanApp')
             }
             $scope.weeklyHours = user.weeklyHours;
             localStorageService.set('gameData', user);
-        }
+        };
         $scope.payTax = function() {
             if (user.lifeSavings > user.taxOwed) {
                 user.lifeSavings -= user.taxOwed;
@@ -238,7 +238,7 @@ angular.module('habitmanApp')
                 $scope.lifeSavings = user.lifeSavings;
             }
             localStorageService.set('gameData', user);
-        }
+        };
 
         $scope.changeFamilyBudget = function() {
             user.familyBudget += 400;
@@ -247,11 +247,11 @@ angular.module('habitmanApp')
             }
             $scope.familyBudget = user.familyBudget;
             localStorageService.set('gameData', user);
-        }
+        };
 
         function addChild() {
             var child = Math.random();
-            if (child > .5) {
+            if (child > 0.5) {
                 user.familyMembers[Object.keys(user.familyMembers).length + 1] = 'boy';
             } else {
                 user.familyMembers[Object.keys(user.familyMembers).length + 1] = 'girl';
@@ -275,7 +275,7 @@ angular.module('habitmanApp')
                 $scope.currentHouseName = currentHouseName[user.homeLevel];
                 localStorageService.set('gameData', user);
             }
-        }
+        };
 
         $scope.rotateFamilyHours = function() {
             user.familyTime += 10;
@@ -284,12 +284,12 @@ angular.module('habitmanApp')
             }
             $scope.familyTime = user.familyTime;
             localStorageService.set('gameData', user);
-        }
+        };
 
         //function for each half second update
         var oneSecond = function() {
                 count++;
-                if (count % 5 == 0) {
+                if (count % 5 === 0) {
                     user.date = Date.now();
                     localStorageService.set('gameData', user);
                 }
@@ -311,7 +311,7 @@ angular.module('habitmanApp')
                 }
 
                 //add on age and update in DOM
-                user.age = user.age + .0024;
+                user.age = user.age + 0.0024;
                 $scope.age = user.age.toFixed(2);
 
                 //add variance & add stress to habit progress bars
@@ -322,11 +322,11 @@ angular.module('habitmanApp')
                 user.goals = user.goals + 2 - 4 * Math.random() - user.tier * user.stress * user.weeklyHours / 150 + user.goalSkill;
 
                 //calculate productivity
-                user.prod = user.prod + (user.sleep / 1000 + user.diet / 1000 + user.exercise / 1000 + user.determination / 1000 + user.goals / 1000) * ((user.vehicleLevel * .8) + 1) - .25;
+                user.prod = user.prod + (user.sleep / 1000 + user.diet / 1000 + user.exercise / 1000 + user.determination / 1000 + user.goals / 1000) * ((user.vehicleLevel * 0.8) + 1) - 0.25;
 
                 //apply $scope updates
                 $scope.$apply();
-            }
+            };
             //starting the update cycle
 
         var timer = setInterval(function() {
