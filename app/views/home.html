@@ -19,7 +19,7 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-<div class="container-fluid">
+<div class="container-fluid house" ng-class="currentHouseName">
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default panel-transparent text-center" ng-hide="welcomeback">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-9 margin20">
+                        <div class="col-md-9 margin20 house">
                             <img class="img-responsive layer" ng-src="images/goals.png" ng-show="goalImage">
                             <img class="img-responsive layer" ng-src="images/nogoals.png" ng-hide="goalImage">
                             <img class="img-responsive layer" ng-src="images/determine.png" ng-show="detImage">
@@ -224,14 +224,6 @@
                     <p ng-show="taxStart">Pay Taxes:
                         <button title="Currently, paying taxes does absolutely nothing" ng-click="payTax()" type="button" class="btn btn-lg">{{tax | currency}}</button>
                     </p>
-                </div>
-            </div>
-            <div class="panel panel-default panel-transparent">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Your Home <button ng-click="hidehome=!hidehome" class="btn">Show/hide</button></h3>
-                </div>
-                <div class="panel-body" ng-hide="hidehome">
-                    <img src="../images/homes/hut.jpg" class="img-responsive" ng-class="currentHouseName">
                 </div>
             </div>
         </div>

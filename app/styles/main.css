@@ -1,9 +1,5 @@
 body {
-    background-image: url('../images/back.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    margin: auto auto;
+    
 
     font-weight: bold;
     border: 0px;
@@ -19,12 +15,12 @@ body {
 }
 
 .panel-transparent .panel-heading {
-    background-color: rgba(94, 87, 71, .6);
+    background-color: rgba(94, 87, 71, .7);
     color: white;
 }
 
 .panel-transparent .panel-body {
-    background: rgba(236, 228, 194, 0.6);
+    background: rgba(236, 228, 194, 0.7);
     font-size: 18px;
 }
 
@@ -148,33 +144,43 @@ img {
     border: none!important;
     outline: none!important;
 }
+.house {
+    background-repeat: no-repeat;
+    padding: 0;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    background-attachment: fixed;
+    margin: auto auto;
+}
 .bench {
-    content: url('../images/homes/bench.jpg');
+    background-image: url('../images/homes/bench.jpg')!important;
 }
 .hut {
-    content: url('../images/homes/hut.jpg');
+    background-image: url('../images/homes/hut.jpg')!important;
 }
 .hovel {
-    content: url('../images/homes/hovel.jpg');
+    background-image: url('../images/homes/hovel.jpg')!important;
 }
 .smallhouse {
-    content: url('../images/homes/smallhouse.jpg');
+    background-image: url('../images/homes/smallhouse.jpg')!important;
 }
 .largehouse {
-    content: url('../images/homes/largehouse.jpg');
+    background-image: url('../images/homes/largehouse.jpg')!important;
 }
 .mansion {
-    content: url('../images/homes/mansion.jpg');
+    background-image: url('../images/homes/mansion.jpg')!important;
 }
 .operahouse {
-    content: url('../images/homes/operahouse.jpg');
+    background-image: url('../images/homes/operahouse.jpg')!important;
 }
 .castle {
-    content: url('../images/homes/castle.jpg');
+    background-image: url('../images/homes/castle.jpg')!important;
 }
 .island {
-    content: url('../images/homes/island.jpg');
+    background-image: url('../images/homes/island.jpg')!important;
 }
 .treehouse {
-    content: url('../images/homes/treehouse.jpg');
+    background-image: url('../images/homes/treehouse.jpg')!important;
 }
