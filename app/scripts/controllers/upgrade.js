@@ -22,7 +22,7 @@ angular.module('habitmanApp')
 
         $scope.habitpower = user.habitpower;
         $scope.spentHP = 0;
-        $scope.nextTier = 30;
+        $scope.nextTier = user.nextTierlevel + 1;
 
         $scope.sleepSkill = user.sleepSkill;
         $scope.exerSkill = user.exerSkill;

@@ -34,8 +34,8 @@ angular.module('habitmanApp')
             $scope.taxStart = true;
         }
         var dateDifference = Date.now() - user.date;
-        if (dateDifference > 20800000) {
-            dateDifference = 20800000;
+        if (dateDifference > 2080000) {
+            dateDifference = 2080000;
         }
         var earned = dateDifference / 500 * (user.wage * user.weeklyHours / 8.3 - user.familyBudget / 8);
         var aged = dateDifference / 500 * (.0024);

@@ -19,7 +19,15 @@ version 0.12.1.
 
 ## Getting started
 
-Run `npm install -g bower`, `npm install -g yo`, `bower install`, and `npm install` to install the dependencies.
+Install node.js.
+
+Install global dependencies:
+npm install -g yo 
+npm install -g bower 
+npm install -g grunt-cli 
+npm install -g gulp
+
+Clone the repo, go to that folder in command prompt, and install the rest of the dependencies, with 'bower install' an 'npm install'.
 
 ## Build & development
 
